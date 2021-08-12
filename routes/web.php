@@ -14,5 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('landingpage');
+    return view('welcometest');
 });
+
+//route handling search capability
+Route::get('/search', [searchController::class, 'search']);

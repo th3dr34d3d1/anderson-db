@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,4 +19,4 @@ Route::get('/', function () {
 });
 
 //route handling search capability
-Route::get('/search', [searchController::class, 'search']);
+Route::get('/search', [SearchController::class, 'search']);

@@ -15,14 +15,14 @@ class CreateOligosTable extends Migration
     {
         Schema::create('oligos', function (Blueprint $table) {
 	    $table->id();
-	    $table->('oligonum');
-	    $table->('datemade');
-	    $table->('designedby');
-	    $table->('madeby');
-	    $table->('sequence');
-	    $table->('pdescription');
-	    $table->('hybridtm');
-	    $table->('lengthbases');
+	    $table->string('oligonum');
+	    $table->string('datemade');
+	    $table->string('designedby');
+	    $table->string('madeby');
+	    $table->string('sequence');
+	    $table->string('pdescription');
+	    $table->string('hybridtm');
+	    $table->string('lengthbases');
             $table->timestamps();
         });
     }

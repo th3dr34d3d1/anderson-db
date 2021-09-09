@@ -17,17 +17,17 @@ class CreateStrainsTable extends Migration
 	    $table->id();
 	    $table->text('strainnumber');
 	    $table->date('dateentered');
-	    $table->('strainname');
-	    $table->('species');
-	    $table->('enteredby');
-	    $table->('mat');
-	    $table->('usedoften');
-	    $table->('bkgnd');
-	    $table->('repandmarkers');
-	    $table->('auxotrophies');
-	    $table->('xtransform');
-	    $table->('source');
-	    $table->('comments');
+	    $table->string('strainname');
+	    $table->string('species');
+	    $table->string('enteredby');
+	    $table->string('mat');
+	    $table->string('usedoften');
+	    $table->string('bkgnd');
+	    $table->string('repandmarkers');
+	    $table->string('auxotrophies');
+	    $table->string('xtransform');
+	    $table->string('source');
+	    $table->string('comments');
             $table->timestamps();
         });
     }

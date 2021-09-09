@@ -15,17 +15,17 @@ class CreateNonyeaststrainsTable extends Migration
     {
         Schema::create('nonyeaststrains', function (Blueprint $table) {
 	    $table->id();
-	    $table->('straintype');
-	    $table->('strainname');
-	    $table->('strainnum');
-	    $table->('genus');
-	    $table->('species');
-	    $table->('date');
-	    $table->('enteredby');
-	    $table->('pdescription');
-	    $table->('source');
-	    $table->('medofisolation');
-	    $table->('medforgrowth');
+	    $table->string('straintype');
+	    $table->string('strainname');
+	    $table->string('strainnum');
+	    $table->string('genus');
+	    $table->string('species');
+	    $table->string('date');
+	    $table->string('enteredby');
+	    $table->string('pdescription');
+	    $table->string('source');
+	    $table->string('medofisolation');
+	    $table->string('medforgrowth');
             $table->timestamps();
         });
     }

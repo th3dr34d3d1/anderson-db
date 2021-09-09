@@ -15,19 +15,19 @@ class CreatePlasmidsTable extends Migration
     {
         Schema::create('plasmids', function (Blueprint $table) {
 	    $table->id();
-	    $table->('plasmidname');
-	    $table->('detailedname');
-	    $table->('sequence');
-	    $table->('date');
-	    $table->('enteredby');
-	    $table->('source');
-	    $table->('concentration');
-	    $table->('markers');
-	    $table->('plasmidsize');
-	    $table->('funcoruse');
-	    $table->('pdescription');
-	    $table->blob('plasmidfile');
-	    $table->blob('plasmidimage');
+	    $table->string('plasmidname');
+	    $table->string('detailedname');
+	    $table->string('sequence');
+	    $table->string('date');
+	    $table->string('enteredby');
+	    $table->string('source');
+	    $table->string('concentration');
+	    $table->string('markers');
+	    $table->string('plasmidsize');
+	    $table->string('funcoruse');
+	    $table->string('pdescription');
+	    $table->binary('plasmidfile');
+	    $table->binary('plasmidimage');
             $table->timestamps();
         });
     }

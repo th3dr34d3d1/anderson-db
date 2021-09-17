@@ -11,6 +11,7 @@
                         @switch ($view_type)
                             @case ('oligos')
                                 <th>Oligos Number</th>
+                                <th>Oligos Name</th>
                                 <th>Description</th>
                                 <th>Sequence</th>
                                 <th>HybridTm</th>
@@ -25,6 +26,7 @@
                                                 {{ $result->oligonum }}
                                             </a>
                                         </td>
+                                        <td>{{ $result->oname }}</td>
                                         <td>{{ $result->pdescription }}</td>
                                         <td>{{ $result->sequence }}</td>
                                         <td>{{ $result->hybridtm }}</td>

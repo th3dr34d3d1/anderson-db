@@ -43,7 +43,7 @@
                             <input id='oligoname-input' type="text" class="form-control" name="oname"><br>
                             
                             <label for='odescription-input'>Description</label>
-                            <input id-'odescription-input' type="text" class="form-control" name="odescription"><br>
+                            <input id='odescription-input' type="text" class="form-control" name="odescription"><br>
 
                             <label for='osquence'>Sequence</label>
                             <input id= 'osequence' type="text" class="form-control" name="sequence"><br>
@@ -58,7 +58,7 @@
                             <input id='omadeby' type="text" class="form-control" name="madeby"><br>
 
                             <label for='odesignedby'>Designed By</label>
-                            <input type="odesignedby" class="form-control" name="designedby"><br>
+                            <input id='odesignedby' type="text" class="form-control" name="designedby"><br>
 
                             <label for='odatemade'>Date Made</label>
                             <input id='odatemade' type="date" class="form-control" name="datemade"><br>

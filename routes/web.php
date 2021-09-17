@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,4 @@ Route::get('/', function () {
 //route handling search capability
 Route::get('/oligos_search', [SearchController::class, 'oligos_search']);
 Route::get('/plasmids_search', [SearchController::class, 'plasmids_search']);
+Route::get('/profile/{id}', [ProfileController::class, 'profile']);

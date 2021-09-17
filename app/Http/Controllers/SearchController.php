@@ -14,20 +14,21 @@ use Illuminate\Support\Facades\DB;
 //controller handling search capability
 class SearchController extends Controller
 {
-	public function plasmids_search(Request $request)
+	public function plasmids(Request $request)
 	{
     }
 
-	public function oligos_search(Request $request)
+	public function oligos(Request $request)
 	{
+        $query = strip_tags($request->get('query'));
         $strains = DB::table('oligos')
-            ->where('oligonum', 'LIKE', '%' . strip_tags($request->get('qstrain')) . '%')
-            ->orWhere('designedby', 'LIKE', '%' . strip_tags($request->get('qstrain')) . '%')
-            ->orWhere('madeby', 'LIKE', '%' . strip_tags($request->get('qstrain')) . '%')
-            ->orWhere('sequence', 'LIKE', '%' . strip_tags($request->get('qstrain')) . '%')
-            ->orWhere('pdescription', 'LIKE', '%' . strip_tags($request->get('qstrain')) . '%')
-            ->orWhere('hybridtm', 'LIKE', '%' . strip_tags($request->get('qstrain')) . '%')
-            ->orWhere('lengthbases', 'LIKE', '%' . strip_tags($request->get('qstrain')) . '%')
+            ->where('oligonum', 'LIKE', '%' . $query . '%')
+            ->orWhere('designedby', 'LIKE', '%' . $query . '%')
+            ->orWhere('madeby', 'LIKE', '%' . $query . '%')
+            ->orWhere('sequence', 'LIKE', '%' . $query . '%')
+            ->orWhere('pdescription', 'LIKE', '%' . $query . '%')
+            ->orWhere('hybridtm', 'LIKE', '%' . $query . '%')
+            ->orWhere('lengthbases', 'LIKE', '%' . $query . '%')
             ->get();
 
 		return view('searchResult', [

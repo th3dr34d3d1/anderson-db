@@ -17,6 +17,7 @@
                                 <th>LengthBases</th>
                                 <th>Designed By</th>
                                 <th>Made By</th>
+                                <th>Date Made</th>
                                 @foreach ($results as $result)
                                     <tr>
                                         <td>
@@ -30,6 +31,7 @@
                                         <td>{{ $result->lengthbases }}</td>
                                         <td>{{ $result->designedby }}</td>
                                         <td>{{ $result->madeby }}</td>
+                                        <td>{{ $result->datemade }}</td>
                                     </tr>
                                 @endforeach
                             @break

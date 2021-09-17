@@ -19,4 +19,5 @@ Route::get('/', function () {
 });
 
 //route handling search capability
-Route::get('/search', [SearchController::class, 'search']);
+Route::get('/oligos_search', [SearchController::class, 'oligos_search']);
+Route::get('/plasmids_search', [SearchController::class, 'plasmids_search']);

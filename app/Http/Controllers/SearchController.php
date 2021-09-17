@@ -20,13 +20,17 @@ class SearchController extends Controller
 
 	public function oligos_search(Request $request)
 	{
-        $strains = DB::table('oligos') 
+        $strains = DB::table('oligos')
             ->where('oligonum', 'LIKE', '%' . strip_tags($request->get('qstrain')) . '%')
             ->orWhere('designedby', 'LIKE', '%' . strip_tags($request->get('qstrain')) . '%')
+            ->orWhere('madeby', 'LIKE', '%' . strip_tags($request->get('qstrain')) . '%')
+            ->orWhere('sequence', 'LIKE', '%' . strip_tags($request->get('qstrain')) . '%')
             ->orWhere('pdescription', 'LIKE', '%' . strip_tags($request->get('qstrain')) . '%')
+            ->orWhere('hybridtm', 'LIKE', '%' . strip_tags($request->get('qstrain')) . '%')
+            ->orWhere('lengthbases', 'LIKE', '%' . strip_tags($request->get('qstrain')) . '%')
             ->get();
 
-		return view('searchResult', [ 
+		return view('searchResult', [
             'results' => $strains,
             'view_type' => 'oligos'
         ]);

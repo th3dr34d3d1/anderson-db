@@ -30,7 +30,8 @@ class CreateController extends Controller
             return redirect()->back()->withErrors([ 'errors' => $msg ]);
         }
         $oligosRec = new Oligos();
-        $oligosRec->oligonum = (strip_tags($request->get('oligonum'))) ?? '';
+        $oligosRec->oligonum = $oligoNum;
+        $oligosRec->oname = $oligoName;
         $oligosRec->pdescription = (strip_tags($request->get('pdescription'))) ?? '';
         $oligosRec->hybridtm = (strip_tags($request->get('hybridtm'))) ?? '';
         $oligosRec->lengthbases = (strip_tags($request->get('lengthbases'))) ?? '';

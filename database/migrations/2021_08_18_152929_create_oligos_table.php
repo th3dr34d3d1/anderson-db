@@ -15,8 +15,9 @@ class CreateOligosTable extends Migration
     {
         Schema::create('oligos', function (Blueprint $table) {
 	    $table->id();
-	    $table->string('oligonum');
-	    $table->string('datemade');
+	    $table->integer('oligonum');
+	    $table->string('oname');
+	    $table->date('datemade');
 	    $table->string('designedby');
 	    $table->string('madeby');
 	    $table->string('sequence');

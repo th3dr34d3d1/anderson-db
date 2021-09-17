@@ -37,31 +37,31 @@
                         @csrf
                         <div class="input-group">
                             <label for='oligonum-input'>Oligos Num</label>
-                            <input id='oligonum-input' type="text" class="form-control" name="oligonum"><br>
+                            <input id='oligonum-input' type="integer" class="form-control" name="oligonum"><br>
 
                             <label for='oligoname-input'>Oligos Name</label>
                             <input id='oligoname-input' type="text" class="form-control" name="oname"><br>
                             
-                            <input type="text" class="form-control" name="odescription"
-                            placeholder="Description"><br>
+                            <label for='odescription-input'>Description</label>
+                            <input id-'odescription-input' type="text" class="form-control" name="odescription"><br>
 
-                            <input type="text" class="form-control" name="sequence"
-                            placeholder="Sequence"><br>
+                            <label for='osquence'>Sequence</label>
+                            <input id= 'osequence' type="text" class="form-control" name="sequence"><br>
 
-                            <input type="text" class="form-control" name="hybridtm"
-                            placeholder="HybridTm"><br>
+                            <label for='hybridtm'>HybridTm</label>
+                            <input id='hybridtm' type="text" class="form-control" name="hybridtm"><br>
 
-                            <input type="text" class="form-control" name="lengthbases"
-                            placeholder="Length Bases"><br>
+                            <label for='lengthbases'>Length Bases</label>
+                            <input id='lengthbases' type="text" class="form-control" name="lengthbases"><br>
 
-                            <input type="text" class="form-control" name="madeby"
-                            placeholder="Made By"><br>
+                            <label for='omadeby'>Made By</label>
+                            <input id='omadeby' type="text" class="form-control" name="madeby"><br>
 
-                            <input type="text" class="form-control" name="designedby"
-                            placeholder="Designed By"><br>
+                            <label for='odesignedby'>Designed By</label>
+                            <input type="odesignedby" class="form-control" name="designedby"><br>
 
-                            <input type="date" class="form-control" name="datemade"
-                            placeholder="Date Made"><br>
+                            <label for='odatemade'>Date Made</label>
+                            <input id='odatemade' type="date" class="form-control" name="datemade"><br>
 
                             <button type="submit" class="btn btn-default">
                             Create Oligo

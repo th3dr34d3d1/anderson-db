@@ -23,6 +23,7 @@ class SearchController extends Controller
         $query = strip_tags($request->get('query'));
         $strains = DB::table('oligos')
             ->where('oligonum', 'LIKE', '%' . $query . '%')
+            ->orwhere('oname', 'LIKE', '%' . $query . '%')
             ->orWhere('designedby', 'LIKE', '%' . $query . '%')
             ->orWhere('madeby', 'LIKE', '%' . $query . '%')
             ->orWhere('sequence', 'LIKE', '%' . $query . '%')

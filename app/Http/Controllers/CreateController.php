@@ -14,6 +14,21 @@ class CreateController extends Controller
 {
     public function oligos(Request $request)
     {
+        $oligoNum = strip_tags($request->get('oligonum'));
+        $oligoName = strip_tags($request->get('oname'));
+        if (! $oligoNum || ! $oligoName) {
+            $msg = [];
+
+            if (! $oligoNum) {
+                $msg[] = 'Missing oligunm, dumbass';
+            }
+
+            if (! $oligoName) {
+                $msg[] = 'Missing name, dumbass';
+            }
+
+            return redirect()->back()->withErrors([ 'errors' => $msg ]);
+        }
         $oligosRec = new Oligos();
         $oligosRec->oligonum = (strip_tags($request->get('oligonum'))) ?? '';
         $oligosRec->pdescription = (strip_tags($request->get('pdescription'))) ?? '';

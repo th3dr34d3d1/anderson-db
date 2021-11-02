@@ -26,3 +26,17 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+
+
+
+
+/*
+const create_oligos_btn = document.getElementById('create-oligos-btn');
+function validate_fields(ev) {
+}
+
+if (create_oligos_btn) {
+    create_oligos_btn.addEventListener('click', validate_fields);
+}
+*/

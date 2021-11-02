@@ -14,30 +14,18 @@ class CreateController extends Controller
 {
     public function oligos(Request $request)
     {
-        $oligoNum = strip_tags($request->get('oligonum'));
-        $oligoName = strip_tags($request->get('oname'));
-        if (! $oligoNum || ! $oligoName) {
-            $msg = [];
-
-            if (! $oligoNum) {
-                $msg[] = 'Missing oligunm, dumbass';
-            }
-
-            if (! $oligoName) {
-                $msg[] = 'Missing name, dumbass';
-            }
-
-            return redirect()->back()->withErrors([ 'errors' => $msg ]);
-        }
         $oligosRec = new Oligos();
-        $oligosRec->oligonum = $oligoNum;
-        $oligosRec->oname = $oligoName;
-        $oligosRec->pdescription = (strip_tags($request->get('pdescription'))) ?? '';
+
+        // required values.. checked in js 
+        $oligosRec->oname = strip_tags($request->get('oname'));
+        $oligosRec->oligonum =  strip_tags($request->get('oligonum'));
+        $oligosRec->datemade = strip_tags($request->get('datemade'));
+
+        $oligosRec->pdescription = (strip_tags($request->get('odescription'))) ?? '';
         $oligosRec->hybridtm = (strip_tags($request->get('hybridtm'))) ?? '';
         $oligosRec->lengthbases = (strip_tags($request->get('lengthbases'))) ?? '';
         $oligosRec->madeby = (strip_tags($request->get('madeby'))) ?? '';
         $oligosRec->designedby = (strip_tags($request->get('designedby'))) ?? '';
-        $oligosRec->datemade = (strip_tags($request->get('datemade'))) ?? '';
         $oligosRec->sequence = (strip_tags($request->get('sequence'))) ?? '';
         $oligosRec->save();
 

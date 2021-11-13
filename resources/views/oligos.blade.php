@@ -40,12 +40,12 @@
                                     <form action="/create/oligos" method="POST" role="search">
                                         @csrf
                                         <div class="input-group">
-                                            <label for='oligonum-input'>Oligos Num</label>
-                                            <input id='oligonum-input' type="text" class="form-control" name="oligonum"><br>
-
-                                            <label for='oligoname-input'>Oligos Name</label>
+                                            <label for='oligoname-input'>Oligo Name</label>
                                             <input id='oligoname-input' type="text" class="form-control" name="oname"><br>
-                                            
+                                           
+                                            <label for='odatemade'>Date Made</label>
+                                            <input id='odatemade' type="date" class="form-control" name="datemade"><br>
+
                                             <label for='odescription-input'>Description</label>
                                             <input id='odescription-input' type="text" class="form-control" name="odescription"><br>
 
@@ -63,9 +63,6 @@
 
                                             <label for='odesignedby'>Designed By</label>
                                             <input id='odesignedby' type="text" class="form-control" name="designedby"><br>
-
-                                            <label for='odatemade'>Date Made</label>
-                                            <input id='odatemade' type="date" class="form-control" name="datemade"><br>
 
                                             <button id='create-oligos-btn' type="submit">
                                                 Create Oligo

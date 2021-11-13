@@ -15,19 +15,18 @@ class CreateStrainsTable extends Migration
     {
         Schema::create('strains', function (Blueprint $table) {
 	    $table->id();
-	    $table->text('strainnumber');
-	    $table->date('dateentered');
+	    $table->date('sdateentered');
 	    $table->string('strainname');
-	    $table->string('species');
-	    $table->string('enteredby');
-	    $table->string('mat');
-	    $table->string('usedoften');
-	    $table->string('bkgnd');
-	    $table->string('repandmarkers');
-	    $table->string('auxotrophies');
-	    $table->string('xtransform');
-	    $table->string('source');
-	    $table->string('comments');
+	    $table->string('sspecies');
+	    $table->string('senteredby');
+	    $table->string('smat');
+	    $table->string('susedoften');
+	    $table->string('sbkgnd');
+	    $table->string('srepandmarkers');
+	    $table->string('sauxotrophies');
+	    $table->string('sxtransform');
+	    $table->string('ssource');
+	    $table->string('scomments');
             $table->timestamps();
         });
     }

@@ -36,51 +36,49 @@
                         <div class="flex items-center">
                             <div class="ml-4 text-lg leading-7 font-semibold">
                                 <h3>Enter New Strain...</h3>
+
                                 <form action="/create/strains" method="POST" role="search">
                                     @csrf
-
                                     <div class="input-group">
-                                        <input type="text" class="form-control" name="strainnum"
-                                        placeholder="Strain Number"><br>
+                                        <label for='strain'>Strain Name</label>
+                                        <input id='strain' type="text" class="form-control" name="sname"><br>
 
-                                        <input type="text" class="form-control" name="sdate"
-                                        placeholder="Date"><br>
+                                        <label for='straindate'>Date Made</label>
+                                        <input id='straindate' type="date" class="form-control" name="sdate"><br>
+                                        
+                                        <label for='species'>Species</label>
+                                        <input id='species' type="text" class="form-control" name="species"><br>
 
-                                        <input type="text" class="form-control" name="sname"
-                                        placeholder="Strain Name"><br>
+                                        <label for='mat'>MAT</label>
+                                        <input id= 'mat' type="text" class="form-control" name="mat"><br>
 
-                                        <input type="text" class="form-control" name="species"
-                                        placeholder="Species"><br>
+                                        <label for='senteredby'>Entered By</label>
+                                        <input id='senteredby' type="text" class="form-control" name="senteredby"><br>
 
-                                        <input type="text" class="form-control" name="mat"
-                                        placeholder="MAT"><br>
+                                        <label for='background'>Background</label>
+                                        <input id='background' type="text" class="form-control" name="background"><br>
 
-                                        <input type="text" class="form-control" name="senteredby"
-                                        placeholder="Entered By"><br>
+                                        <label for='srepandmark'>Reports & Markers</label>
+                                        <input id='srepandmark' type="text" class="form-control" name="srepandmark"><br>
 
-                                        <input type="text" class="form-control" name="sbackground"
-                                        placeholder="Background"><br>
+                                        <label for='usedoften'>Used Often</label>
+                                        <input id='usedoften' type="text" class="form-control" name="usedoften"><br>
 
-                                        <input type="text" class="form-control" name="usedoften"
-                                        placeholder="Used Often"><br>
+                                        <label for='auxotrophies'>Auxotrophies</label>
+                                        <input id='auxotrophies' type="text" class="form-control" name="auxotrophies"><br>
 
-                                        <input type="text" class="form-control" name="repandmark"
-                                        placeholder="Reporters & Markers"><br>
-
-                                        <input type="text" class="form-control" name="auxotrophies"
-                                        placeholder="Auxotrophies"><br>
-
-                                        <input type="text" class="form-control" name="xtransform"
-                                        placeholder="Cross/Transformation"><br>
-
-                                        <input type="text" class="form-control" name="ssource"
-                                        placeholder="Source"><br>
-
-                                        <input type="text" class="form-control" name="datemade"
-                                        placeholder="Comments"><br>
-
+                                        <label for='xtrans'>Cross/Transformation</label>
+                                        <input id='xtrans' type="text" class="form-control" name="xtrans"><br>
+                                        
+                                        <label for='ssource'>Source</label>
+                                        <input id='ssource' type="text" class="form-control" name="ssource"><br>
+                                        
+                                        <label for='scomments'>Comments</label>
+                                        <input id='scomments' type="text" class="form-control" name="scomments"><br>
+                                        
+                                        
                                         <button type="submit" class="btn btn-default">
-                                            Create Strain
+                                        Create Strain
                                         </button>
                                     </div>
                                 </form>

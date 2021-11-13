@@ -21,12 +21,16 @@ Route::get('/', function () {
 })->name('test');
 
 
-//route handling search capability
+//route handling search & create capabilities
 Route::get('/search/oligos', [SearchController::class, 'oligos'])->middleware(['auth'])->name('search_oligos');
-Route::get('/search/plasmids', [SearchController::class, 'plasmids'])->middleware(['auth'])->name('plasmids');
+Route::get('/search/plasmids', [SearchController::class, 'plasmids'])->middleware(['auth'])->name('search_plasmids');
+Route::get('/search/strains', [SearchController::class, 'strains'])->middleware(['auth'])->name('search_strains');
+Route::get('/search/nonyeaststrains', [SearchController::class, 'nonyeaststrains'])->middleware(['auth'])->name('search_nonyeaststrains');
 Route::get('/profile/{id}', [ProfileController::class, 'profile'])->middleware(['auth'])->name('profile');
 Route::post('/create/oligos', [CreateController::class, 'oligos'])->middleware(['auth'])->name('oligos_create');
-
+Route::post('/create/plasmids', [CreateController::class, 'plasmids'])->middleware(['auth'])->name('plasmids_create');
+Route::post('/create/strains', [CreateController::class, 'strains'])->middleware(['auth'])->name('strains_create');
+Route::post('/create/nonyeaststrains', [CreateController::class, 'nonyeaststrains'])->middleware(['auth'])->name('nonyeaststrains_create');
 
 
 Route::get('/strains', function () {

@@ -13,18 +13,18 @@
                     <div class="p-6">
                         <div class="flex items-center">
                             <div class="ml-4 text-lg leading-7 font-semibold">
-                                <h3>Search Oligos...</h3>
-                                <form action="/search/oligos" method="GET" role="search">
+                                <h3>Search Plasmids...</h3>
+                                <form action="/search/plasmids" method="GET" role="search">
 
                                     <div class="input-group">
                                         <input id="search-bar" type="text" class="form-control" name="query"
                                         placeholder="Search Text"><br>
 
                                         <input type="text" class="form-control" name="qdate"
-                                        placeholder="Search Date"><br>
+                                        placeholder="Search Date"><br><br>
 
                                         <button type="submit" class="btn btn-default">
-                                        Search Oligos
+                                        Search Plasmids
                                         </button>
                                     </div>
                                 </form>
@@ -35,44 +35,50 @@
                     <div class="p-6">
                         <div class="flex items-center">
                             <div class="ml-4 text-lg leading-7 font-semibold">
-                                <h3>Enter New Oligo...</h3>
+                                <h3>Enter New Plasmid...</h3>
                                 @if ($errors->any()) 
                                     @foreach ($errors->all() as $err)
                                         <h4>{{ $err }}</h4>
                                     @endforeach
                                 @endif
-                                <form action="/create/oligos" method="POST" role="search">
+                                <form action="/create/plasmids" method="POST" role="search">
                                     @csrf
                                     <div class="input-group">
-                                        <label for='oligonum-input'>Oligos Num</label>
-                                        <input id='oligonum-input' type="integer" class="form-control" name="oligonum"><br>
+                                        <label for='plasmidname'>Plasmid Name</label>
+                                        <input id='plasmidname' type="text" class="form-control" name="plasmidname"><br>
 
-                                        <label for='oligoname-input'>Oligos Name</label>
-                                        <input id='oligoname-input' type="text" class="form-control" name="oname"><br>
+                                        <label for='pdname'>Detailed Name</label>
+                                        <input id='pdname' type="text" class="form-control" name="pdname"><br>
                                         
-                                        <label for='odescription-input'>Description</label>
-                                        <input id='odescription-input' type="text" class="form-control" name="odescription"><br>
+                                        <label for='pdatemade'>Date Made</label>
+                                        <input id='pdatemade' type="date" class="form-control" name="pdatemade"><br><br>
+                                        
+                                        <label for='penteredby'>Sequence</label>
+                                        <input id='penteredby' type="text" class="form-control" name="penteredby"><br>
+                                        
+                                        <label for='psequence'>Sequence</label>
+                                        <input id='psequence' type="text" class="form-control" name="psequence"><br>
 
-                                        <label for='osquence'>Sequence</label>
-                                        <input id= 'osequence' type="text" class="form-control" name="sequence"><br>
+                                        <label for='pusage'>Function/Usage</label>
+                                        <input id= 'pusage' type="text" class="form-control" name="pusage"><br>
 
-                                        <label for='hybridtm'>HybridTm</label>
-                                        <input id='hybridtm' type="text" class="form-control" name="hybridtm"><br>
+                                        <label for='psource'>Source</label>
+                                        <input id='psource' type="text" class="form-control" name="psource"><br>
 
-                                        <label for='lengthbases'>Length Bases</label>
-                                        <input id='lengthbases' type="text" class="form-control" name="lengthbases"><br>
+                                        <label for='plasmidsize'>Plasmid Size</label>
+                                        <input id='plasmidsize' type="text" class="form-control" name="plasmidsize"><br>
 
-                                        <label for='omadeby'>Made By</label>
-                                        <input id='omadeby' type="text" class="form-control" name="madeby"><br>
+                                        <label for='plasmidfile'>Plasmid File</label>
+                                        <input id='plasmidfile' type="text" class="form-control" name="plasmidfile"><br>
 
-                                        <label for='odesignedby'>Designed By</label>
-                                        <input id='odesignedby' type="text" class="form-control" name="designedby"><br>
+                                        <label for='plasmidimage'>Plasmid Image</label>
+                                        <input id='plasmidimage' type="text" class="form-control" name="plasmidimage"><br>
 
-                                        <label for='odatemade'>Date Made</label>
-                                        <input id='odatemade' type="date" class="form-control" name="datemade"><br>
+                                        <label for='pcomments'>Comments</label>
+                                        <input id='pcomments' type="text" class="form-control" name="pcomments"><br><br>
 
-                                        <button type="submit" class="btn btn-default">
-                                        Create Oligo
+                                        <button type="submit" class="btn default">
+                                        Create Plasmid
                                         </button>
                                     </div>
                                 </form>

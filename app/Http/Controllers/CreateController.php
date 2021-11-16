@@ -20,10 +20,9 @@ class CreateController extends Controller
 
         // required values.. checked in js 
         $oligosRec->oname = strip_tags($request->get('oname'));
-        $oligosRec->oligonum =  strip_tags($request->get('oligonum'));
         $oligosRec->datemade = strip_tags($request->get('datemade'));
 
-        $oligosRec->pdescription = (strip_tags($request->get('odescription'))) ?? '';
+        $oligosRec->odescription = (strip_tags($request->get('odescription'))) ?? '';
         $oligosRec->hybridtm = (strip_tags($request->get('hybridtm'))) ?? '';
         $oligosRec->lengthbases = (strip_tags($request->get('lengthbases'))) ?? '';
         $oligosRec->madeby = (strip_tags($request->get('madeby'))) ?? '';

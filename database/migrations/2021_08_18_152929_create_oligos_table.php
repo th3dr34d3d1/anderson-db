@@ -20,7 +20,7 @@ class CreateOligosTable extends Migration
 	    $table->string('designedby');
 	    $table->string('madeby');
 	    $table->string('sequence');
-	    $table->string('pdescription');
+	    $table->string('odescription');
 	    $table->string('hybridtm');
 	    $table->string('lengthbases');
             $table->timestamps();

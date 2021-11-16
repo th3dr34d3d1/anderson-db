@@ -22,7 +22,7 @@ class SearchController extends Controller
             ->orWhere('designedby', 'LIKE', '%' . $query . '%')
             ->orWhere('madeby', 'LIKE', '%' . $query . '%')
             ->orWhere('sequence', 'LIKE', '%' . $query . '%')
-            ->orWhere('pdescription', 'LIKE', '%' . $query . '%')
+            ->orWhere('odescription', 'LIKE', '%' . $query . '%')
             ->orWhere('hybridtm', 'LIKE', '%' . $query . '%')
             ->orWhere('lengthbases', 'LIKE', '%' . $query . '%')
             ->get();

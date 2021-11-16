@@ -53,7 +53,7 @@
                                         <label for='pdatemade'>Date Made</label>
                                         <input id='pdatemade' type="date" class="form-control" name="pdatemade"><br><br>
                                         
-                                        <label for='penteredby'>Sequence</label>
+                                        <label for='penteredby'>Entered By</label>
                                         <input id='penteredby' type="text" class="form-control" name="penteredby"><br>
                                         
                                         <label for='psequence'>Sequence</label>

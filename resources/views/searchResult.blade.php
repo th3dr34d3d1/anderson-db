@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard z') }}
+            {{ $view_type . " Search Results" }}
         </h2>
     </x-slot>
 
@@ -33,11 +33,11 @@
                                                     <tr>
                                                         <td>
                                                             <a href={{ url('/profile/' . $result->id) }}>
-                                                                {{ $result->oligonum }}
+                                                                {{ $result->id }}
                                                             </a>
                                                         </td>
                                                         <td>{{ $result->oname }}</td>
-                                                        <td>{{ $result->pdescription }}</td>
+                                                        <td>{{ $result->odescription }}</td>
                                                         <td>{{ $result->sequence }}</td>
                                                         <td>{{ $result->hybridtm }}</td>
                                                         <td>{{ $result->lengthbases }}</td>
@@ -49,9 +49,100 @@
                                             @break
 
                                             @case ('plasmids')
-                                                <th>Test</th>
+                                                <th>Plasmid Number</th>
+                                                <th>Plasmid Name</th>
+                                                <th>Detailed Name</th>
+                                                <th>Entered By</th>
+                                                <th>Sequence</th>
+                                                <th>Function/Usage</th>
+                                                <th>Source</th>
+                                                <th>Plasmid Size</th>
+                                                <th>Plasmid File</th>
+                                                <th>Plasmid Image</th>
+                                                <th>Comments</th>
                                                 @foreach ($results as $result)
                                                     <tr>
+                                                        <td>
+                                                            <a href={{ url('/profile/' . $result->id) }}>
+                                                                {{ $result->id }}
+                                                            </a>
+                                                        </td>
+                                                        <td>{{ $result->plasmidname }}</td>
+                                                        <td>{{ $result->pdname }}</td>
+                                                        <td>{{ $result->penteredby }}</td>
+                                                        <td>{{ $result->psequence }}</td>
+                                                        <td>{{ $result->pusage }}</td>
+                                                        <td>{{ $result->pconcentration }}</td>
+                                                        <td>{{ $result->plasmidsize }}</td>
+                                                        <td>{{ $result->plasmidfile }}</td>
+                                                        <td>{{ $result->plasmidimage }}</td>
+                                                        <td>{{ $result->pcomments }}</td>
+                                                    </tr>
+                                                @endforeach
+                                            @break
+
+                                            @case ('strains')
+                                                <th>Strain Number</th>
+                                                <th>Strain Name</th>
+                                                <th>Species</th>
+                                                <th>MAT</th>
+                                                <th>Entered By</th>
+                                                <th>Background</th>
+                                                <th>Reports & Markers</th>
+                                                <th>Used Often</th>
+                                                <th>Auxotrophies</th>
+                                                <th>Cross/Transformation</th>
+                                                <th>Source</th>
+                                                <th>Comments</th>
+                                                @foreach ($results as $result)
+                                                    <tr>
+                                                        <td>
+                                                            <a href={{ url('/profile/' . $result->id) }}>
+                                                                {{ $result->id }}
+                                                            </a>
+                                                        </td>
+                                                        <td>{{ $result->strainname }}</td>
+                                                        <td>{{ $result->sspecies }}</td>
+                                                        <td>{{ $result->smat }}</td>
+                                                        <td>{{ $result->senteredby }}</td>
+                                                        <td>{{ $result->susedoften }}</td>
+                                                        <td>{{ $result->sbkgnd }}</td>
+                                                        <td>{{ $result->srepandmarkers }}</td>
+                                                        <td>{{ $result->sauxotrophies }}</td>
+                                                        <td>{{ $result->sxtransform }}</td>
+                                                        <td>{{ $result->ssource }}</td>
+                                                        <td>{{ $result->scomments }}</td>
+                                                    </tr>
+                                                @endforeach
+                                            @break
+
+                                            @case ('nystrains')
+                                                <th>Strain Number</th>
+                                                <th>Strain Type</th>
+                                                <th>Strain Name</th>
+                                                <th>Entered By</th>
+                                                <th>Genus</th>
+                                                <th>Species</th>
+                                                <th>Source</th>
+                                                <th>Medium of Isolation</th>
+                                                <th>Medium for Growth</th>
+                                                <th>Comments</th>
+                                                @foreach ($results as $result)
+                                                    <tr>
+                                                        <td>
+                                                            <a href={{ url('/profile/' . $result->id) }}>
+                                                                {{ $result->id }}
+                                                            </a>
+                                                        </td>
+                                                        <td>{{ $result->nystraintype }}</td>
+                                                        <td>{{ $result->nystrainname }}</td>
+                                                        <td>{{ $result->nyenteredby }}</td>
+                                                        <td>{{ $result->nygenus }}</td>
+                                                        <td>{{ $result->nyspecies }}</td>
+                                                        <td>{{ $result->nysource }}</td>
+                                                        <td>{{ $result->nymedofisolation }}</td>
+                                                        <td>{{ $result->nymedforgrowth }}</td>
+                                                        <td>{{ $result->nycomments }}</td>
                                                     </tr>
                                                 @endforeach
                                             @break

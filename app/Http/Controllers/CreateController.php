@@ -62,25 +62,65 @@ class CreateController extends Controller
         ]);
     }
 
-    public function plasmids(Request $request)
+    public function plasmids(Request $request, $id = null)
     {
-        $plasmidsRec = new Plasmids();
+        if ($id) {
+            $plasmidsRec = Plasmids::where('id', $id)->first();
+        } else {
+            $plasmidsRec = new Plasmids();
+        }
 
-        // required values.. checked in js
-        $plasmidsRec->plasmidname = strip_tags($request->get('plasmidname'));
-        $plasmidsRec->pdname =  strip_tags($request->get('pdname'));
-        $plasmidsRec->penteredby =  strip_tags($request->get('penteredby'));
+        if ($name = strip_tags($request->get('plasmidname'))) {
+            $plasmidsRec->plasmidname = $name;
+        }
 
-        $plasmidsRec->psequence = strip_tags($request->get('psequence'));
-        $plasmidsRec->pusage = (strip_tags($request->get('pusage'))) ?? '';
-        $plasmidsRec->psource = (strip_tags($request->get('psource'))) ?? '';
-        $plasmidsRec->pconcentration = (strip_tags($request->get('pconcentration'))) ?? '';
-        $plasmidsRec->pmarkers = (strip_tags($request->get('pmarkers'))) ?? '';
-        $plasmidsRec->plasmidsize = (strip_tags($request->get('plasmidsize'))) ?? '';
-        $plasmidsRec->plasmidfile = (strip_tags($request->get('plasmidfile'))) ?? '';
-        $plasmidsRec->plasmidimage = (strip_tags($request->get('plasmidimage'))) ?? '';
-        $plasmidsRec->pdatemade = (strip_tags($request->get('pdatemade'))) ?? '';
-        $plasmidsRec->pcomments = (strip_tags($request->get('pcomments'))) ?? '';
+        if ($pdname = strip_tags($request->get('pdname'))) {
+            $plasmidsRec->pdname = $pdname;
+        }
+
+        if ($pdate = strip_tags($request->get('pdatemade'))) {
+            $plasmidsRec->pdatemade = $pdate;
+        }
+
+        if ($enteredby = strip_tags($request->get('penteredby'))) {
+            $plasmidsRec->penteredby = $enteredby;
+        }
+
+        if ($psequence = strip_tags($request->get('psequence'))) {
+            $plasmidsRec->psequence = $psequence;
+        }
+
+        if ($pusage = strip_tags($request->get('pusage'))) {
+            $plasmidsRec->pusage = $pusage;
+        }
+
+        if ($psource = strip_tags($request->get('psource'))) {
+            $plasmidsRec->psource = $psource;
+        }
+
+        if ($pconcentration = strip_tags($request->get('pconcentration'))) {
+            $plasmidsRec->pconcentration = $pconcentration;
+        }
+
+        if ($mark = strip_tags($request->get('pmarkers'))) {
+            $plasmidsRec->pmarkers = $mark;
+        }
+        if ($psize = strip_tags($request->get('plasmidsize'))) {
+            $plasmidsRec->plasmidsize = $psize;
+        }
+
+        if ($plasmidfile = strip_tags($request->get('plasmidfile'))) {
+            $plasmidsRec->plasmidfile = $plasmidfile;
+        }
+
+        if ($pimage = strip_tags($request->get('plasmidimage'))) {
+            $plasmidsRec->plasmidimage = $pimage;
+        }
+
+        if ($pcomments = strip_tags($request->get('pcomments'))) {
+            $plasmidsRec->pcomments = $pcomments;
+        }
+
         $plasmidsRec->save();
 
         return view('profile', [
@@ -90,24 +130,61 @@ class CreateController extends Controller
         ]);
     }
 
-    public function strains(Request $request)
+    public function strains(Request $request, $id = null)
     {
-        $strainsRec = new Strains();
+        if ($id) {
+            $strainsRec = Strains::where('id', $id)->first();
+        } else {
+            $strainsRec = new Strains();
+        }
 
-        // required values.. checked in js
-        $strainsRec->strainname =  strip_tags($request->get('sname'));
-        $strainsRec->senteredby =  strip_tags($request->get('sdate'));
-        $strainsRec->sdateentered =  strip_tags($request->get('sdate'));
+        if ($name = strip_tags($request->get('strainname'))) {
+            $strainsRec->strainname = $name;
+        }
 
-        $strainsRec->sspecies = strip_tags($request->get('species'));
-        $strainsRec->smat = (strip_tags($request->get('mat'))) ?? '';
-        $strainsRec->susedoften = (strip_tags($request->get('usedoften'))) ?? '';
-        $strainsRec->sbkgnd = (strip_tags($request->get('background'))) ?? '';
-        $strainsRec->srepandmarkers = (strip_tags($request->get('srepandmark'))) ?? '';
-        $strainsRec->sauxotrophies = (strip_tags($request->get('auxotrophies'))) ?? '';
-        $strainsRec->sxtransform = (strip_tags($request->get('xtrans'))) ?? '';
-        $strainsRec->ssource = (strip_tags($request->get('ssource'))) ?? '';
-        $strainsRec->scomments = (strip_tags($request->get('scomments'))) ?? '';
+        if ($senteredby = strip_tags($request->get('senteredby'))) {
+            $strainsRec->senteredby = $senteredby;
+        }
+
+        if ($date = strip_tags($request->get('sdate'))) {
+            $strainsRec->sdateentered = $date;
+        }
+
+        if ($species = strip_tags($request->get('sspecies'))) {
+            $strainsRec->sspecies = $species;
+        }
+
+        if ($smat = strip_tags($request->get('smat'))) {
+            $strainsRec->smat = $smat;
+        }
+
+        if ($susedoften = strip_tags($request->get('susedoften'))) {
+            $strainsRec->susedoften = $susedoften;
+        }
+
+        if ($bkgnd = strip_tags($request->get('sbkgnd'))) {
+            $strainsRec->sbkgnd = $bkgnd;
+        }
+
+        if ($mark = strip_tags($request->get('srepandmarkers'))) {
+            $strainsRec->srepandmarkers = $mark;
+        }
+        if ($aux = strip_tags($request->get('sauxotrophies'))) {
+            $strainsRec->sauxotrophies = $aux;
+        }
+
+        if ($xtrans = strip_tags($request->get('sxtransform'))) {
+            $strainsRec->sxtransform = $xtrans;
+        }
+
+        if ($source = strip_tags($request->get('ssource'))) {
+            $strainsRec->ssource = $source;
+        }
+
+        if ($scomments = strip_tags($request->get('scomments'))) {
+            $strainsRec->scomments = $scomments;
+        }
+
         $strainsRec->save();
 
         return view('profile', [
@@ -128,7 +205,7 @@ class CreateController extends Controller
         if ($nystraintype = strip_tags($request->get('nystraintype'))) {
             $nystrainsRec->nystraintype = $nystraintype;
         }
-        if ($nystrainname =  strip_tags($request->get('nyname'))) {
+        if ($nystrainname =  strip_tags($request->get('nystrainname'))) {
             $nystrainsRec->nystrainname =  $nystrainname;
         }
         if ($nydate =  strip_tags($request->get('nydate'))) {

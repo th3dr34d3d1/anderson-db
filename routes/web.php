@@ -41,7 +41,7 @@ Route::get('/edit/nystrains/{id}', [EditController::class, 'nystrains'])->middle
 Route::post('/save/oligos/{id}', [CreateController::class, 'oligos'])->middleware(['auth'])->name('save_oligos');
 Route::post('/save/plasmids/{id}', [CreateController::class, 'plasmids'])->middleware(['auth'])->name('save_plasmids');
 Route::post('/save/strains/{id}', [CreateController::class, 'strains'])->middleware(['auth'])->name('save_strains');
-Route::post('/save/nonyeaststrains/{id}', [CreateController::class, 'nystrains'])->middleware(['auth'])->name('save_nystrains');
+Route::post('/save/nonyeaststrains/{id}', [CreateController::class, 'nonyeaststrains'])->middleware(['auth'])->name('save_nystrains');
 
 Route::post('/create/oligos', [CreateController::class, 'oligos'])->middleware(['auth'])->name('oligos_create');
 Route::post('/create/plasmids', [CreateController::class, 'plasmids'])->middleware(['auth'])->name('plasmids_create');

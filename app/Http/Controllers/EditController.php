@@ -13,23 +13,24 @@ use App\Models\Nonyeaststrains;
 use Illuminate\Support\Facades\DB;
 
 
-class ProfileController extends Controller
+class EditController extends Controller
 {
 	public function oligos($id)
 	{
         $rec = Oligos::where('id', $id)->first();
         return view('profile', [
             'record' => $rec,
-            'is_edit' => false,
-            'view_type' => 'oligos'
+            'view_type' => 'oligos',
+            'is_edit' => true,
         ]);
     }
+
 	public function plasmids($id)
 	{
         $rec = Plasmids::where('id', $id)->first();
         return view('profile', [
             'record' => $rec,
-            'is_edit' => false,
+            'is_edit' => true,
             'view_type' => 'plasmids'
         ]);
     }
@@ -39,7 +40,7 @@ class ProfileController extends Controller
         $rec = Strains::where('id', $id)->first();
         return view('profile', [
             'record' => $rec,
-            'is_edit' => false,
+            'is_edit' => true,
             'view_type' => 'strains'
         ]);
     }
@@ -49,7 +50,7 @@ class ProfileController extends Controller
         $rec = Nonyeaststrains::where('id', $id)->first();
         return view('profile', [
             'record' => $rec,
-            'is_edit' => false,
+            'is_edit' => true,
             'view_type' => 'nystrains'
         ]);
     }

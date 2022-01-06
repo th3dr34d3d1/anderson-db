@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-   
+
 
                     <div class="grid grid-cols-1 md:grid-cols-1">
                         <div class="p-6">
@@ -29,10 +29,11 @@
                                                 <th>Designed By</th>
                                                 <th>Made By</th>
                                                 <th>Date Made</th>
+
                                                 @foreach ($results as $result)
                                                     <tr>
                                                         <td>
-                                                            <a href={{ url('/profile/' . $result->id) }}>
+                                                            <a href={{ url('/profile/oligos/' . $result->id) }}>
                                                                 {{ $result->id }}
                                                             </a>
                                                         </td>
@@ -60,10 +61,11 @@
                                                 <th>Plasmid File</th>
                                                 <th>Plasmid Image</th>
                                                 <th>Comments</th>
+
                                                 @foreach ($results as $result)
                                                     <tr>
                                                         <td>
-                                                            <a href={{ url('/profile/' . $result->id) }}>
+                                                            <a href={{ url('/profile/plasmids/' . $result->id) }}>
                                                                 {{ $result->id }}
                                                             </a>
                                                         </td>
@@ -94,10 +96,11 @@
                                                 <th>Cross/Transformation</th>
                                                 <th>Source</th>
                                                 <th>Comments</th>
+
                                                 @foreach ($results as $result)
                                                     <tr>
                                                         <td>
-                                                            <a href={{ url('/profile/' . $result->id) }}>
+                                                            <a href={{ url('/profile/strains/' . $result->id) }}>
                                                                 {{ $result->id }}
                                                             </a>
                                                         </td>
@@ -127,10 +130,11 @@
                                                 <th>Medium of Isolation</th>
                                                 <th>Medium for Growth</th>
                                                 <th>Comments</th>
+
                                                 @foreach ($results as $result)
                                                     <tr>
                                                         <td>
-                                                            <a href={{ url('/profile/' . $result->id) }}>
+                                                            <a href={{ url('/profile/nonyeaststrains/' . $result->id) }}>
                                                                 {{ $result->id }}
                                                             </a>
                                                         </td>

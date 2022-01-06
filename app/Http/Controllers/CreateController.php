@@ -14,37 +14,63 @@ use App\Models\Nonyeaststrains;
 
 class CreateController extends Controller
 {
-    public function oligos(Request $request)
+    public function oligos(Request $request, $id = null)
     {
-        $oligosRec = new Oligos();
+        if ($id) {
+            $oligosRec = Oligos::where('id', $id)->first();
+        } else {
+            $oligosRec = new Oligos();
+        }
 
-        // required values.. checked in js 
-        $oligosRec->oname = strip_tags($request->get('oname'));
-        $oligosRec->datemade = strip_tags($request->get('datemade'));
+        if ($name = strip_tags($request->get('oname'))) {
+            $oligosRec->oname = $name;
+        }
 
-        $oligosRec->odescription = (strip_tags($request->get('odescription'))) ?? '';
-        $oligosRec->hybridtm = (strip_tags($request->get('hybridtm'))) ?? '';
-        $oligosRec->lengthbases = (strip_tags($request->get('lengthbases'))) ?? '';
-        $oligosRec->madeby = (strip_tags($request->get('madeby'))) ?? '';
-        $oligosRec->designedby = (strip_tags($request->get('designedby'))) ?? '';
-        $oligosRec->sequence = (strip_tags($request->get('sequence'))) ?? '';
+        if ($dateMade = strip_tags($request->get('datemade'))) {
+            $oligosRec->datemade = $dateMade;
+        }
+
+        if ($desc = strip_tags($request->get('odescription'))) {
+            $oligosRec->odescription = $desc;
+        }
+
+        if ($hybridtm = strip_tags($request->get('hybridtm'))) {
+            $oligosRec->hybridtm = $hybridtm;
+        }
+
+        if ($lengthbases = strip_tags($request->get('lengthbases'))) {
+            $oligosRec->lengthbases = $lengthbases;
+        }
+
+        if ($madeBy = strip_tags($request->get('madeby'))) {
+            $oligosRec->madeby = $madeBy;
+        }
+
+        if ($designedBy = strip_tags($request->get('designedby'))) {
+            $oligosRec->designedby = $designedBy;
+        }
+
+        if ($seq = strip_tags($request->get('sequence'))) {
+            $oligosRec->sequence = $seq;
+        }
         $oligosRec->save();
 
-        var_dump('created new record: id = ' . $oligosRec->id);
-    //		return view('profile', [
-    //
-    //        ]);
+        return view('profile', [
+            'record' => $oligosRec,
+            'is_edit' => false,
+            'view_type' => 'oligos'
+        ]);
     }
 
     public function plasmids(Request $request)
     {
         $plasmidsRec = new Plasmids();
 
-        // required values.. checked in js 
+        // required values.. checked in js
         $plasmidsRec->plasmidname = strip_tags($request->get('plasmidname'));
         $plasmidsRec->pdname =  strip_tags($request->get('pdname'));
         $plasmidsRec->penteredby =  strip_tags($request->get('penteredby'));
-        
+
         $plasmidsRec->psequence = strip_tags($request->get('psequence'));
         $plasmidsRec->pusage = (strip_tags($request->get('pusage'))) ?? '';
         $plasmidsRec->psource = (strip_tags($request->get('psource'))) ?? '';
@@ -57,21 +83,22 @@ class CreateController extends Controller
         $plasmidsRec->pcomments = (strip_tags($request->get('pcomments'))) ?? '';
         $plasmidsRec->save();
 
-        var_dump('created new record: id = ' . $plasmidsRec->id);
-    //		return view('profile', [
-    //
-    //        ]);
+        return view('profile', [
+            'record' => $plasmidsRec,
+            'is_edit' => false,
+            'view_type' => 'plasmids'
+        ]);
     }
 
     public function strains(Request $request)
     {
         $strainsRec = new Strains();
 
-        // required values.. checked in js 
+        // required values.. checked in js
         $strainsRec->strainname =  strip_tags($request->get('sname'));
         $strainsRec->senteredby =  strip_tags($request->get('sdate'));
         $strainsRec->sdateentered =  strip_tags($request->get('sdate'));
-        
+
         $strainsRec->sspecies = strip_tags($request->get('species'));
         $strainsRec->smat = (strip_tags($request->get('mat'))) ?? '';
         $strainsRec->susedoften = (strip_tags($request->get('usedoften'))) ?? '';
@@ -83,21 +110,22 @@ class CreateController extends Controller
         $strainsRec->scomments = (strip_tags($request->get('scomments'))) ?? '';
         $strainsRec->save();
 
-        var_dump('created new record: id = ' . $strainsRec->id);
-    //		return view('profile', [
-    //
-    //        ]);
+        return view('profile', [
+            'record' => $strainsRec,
+            'is_edit' => false,
+            'view_type' => 'strains'
+        ]);
     }
 
     public function nonyeaststrains(Request $request)
     {
         $nystrainsRec = new Nonyeaststrains();
 
-        // required values.. checked in js 
+        // required values.. checked in js
         $nystrainsRec->nystraintype = strip_tags($request->get('nystraintype'));
         $nystrainsRec->nystrainname =  strip_tags($request->get('nyname'));
         $nystrainsRec->nydate =  strip_tags($request->get('nydate'));
-        
+
         $nystrainsRec->nyenteredby = strip_tags($request->get('nyenteredby'));
         $nystrainsRec->nygenus = (strip_tags($request->get('nygenus'))) ?? '';
         $nystrainsRec->nyspecies = (strip_tags($request->get('nyspecies'))) ?? '';
@@ -107,9 +135,10 @@ class CreateController extends Controller
         $nystrainsRec->nycomments = (strip_tags($request->get('nycomments'))) ?? '';
         $nystrainsRec->save();
 
-        var_dump('created new record: id = ' . $nystrainsRec->id);
-    //		return view('profile', [
-    //
-    //        ]);
+        return view('profile', [
+            'record' => $nystrainsRec,
+            'is_edit' => false,
+            'view_type' => 'nystrains'
+        ]);
     }
 }

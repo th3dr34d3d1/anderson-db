@@ -117,22 +117,45 @@ class CreateController extends Controller
         ]);
     }
 
-    public function nonyeaststrains(Request $request)
+    public function nonyeaststrains(Request $request, $id = null)
     {
-        $nystrainsRec = new Nonyeaststrains();
+        if ($id) {
+            $nystrainsRec = Nonyeaststrains::where('id', $id)->first();
+        } else {
+            $nystrainsRec = new Nonyeaststrains();
+        }
 
-        // required values.. checked in js
-        $nystrainsRec->nystraintype = strip_tags($request->get('nystraintype'));
-        $nystrainsRec->nystrainname =  strip_tags($request->get('nyname'));
-        $nystrainsRec->nydate =  strip_tags($request->get('nydate'));
+        if ($nystraintype = strip_tags($request->get('nystraintype'))) {
+            $nystrainsRec->nystraintype = $nystraintype;
+        }
+        if ($nystrainname =  strip_tags($request->get('nyname'))) {
+            $nystrainsRec->nystrainname =  $nystrainname;
+        }
+        if ($nydate =  strip_tags($request->get('nydate'))) {
+            $nystrainsRec->nydate = $nydate;
+        }
 
-        $nystrainsRec->nyenteredby = strip_tags($request->get('nyenteredby'));
-        $nystrainsRec->nygenus = (strip_tags($request->get('nygenus'))) ?? '';
-        $nystrainsRec->nyspecies = (strip_tags($request->get('nyspecies'))) ?? '';
-        $nystrainsRec->nysource = (strip_tags($request->get('nysource'))) ?? '';
-        $nystrainsRec->nymedofisolation = (strip_tags($request->get('nymedofisolation'))) ?? '';
-        $nystrainsRec->nymedforgrowth = (strip_tags($request->get('nymedforgrowth'))) ?? '';
-        $nystrainsRec->nycomments = (strip_tags($request->get('nycomments'))) ?? '';
+        if ($nyenteredby = strip_tags($request->get('nyenteredby'))) {
+            $nystrainsRec->nyenteredby = $nyenteredby;
+        }
+        if ($nygenus = (strip_tags($request->get('nygenus')))) {
+            $nystrainsRec->nygenus = $nygenus;
+        }
+        if ($nyspecies = (strip_tags($request->get('nyspecies')))) {
+            $nystrainsRec->nyspecies = $nyspecies;
+        }
+        if ($nysource = (strip_tags($request->get('nysource')))) {
+            $nystrainsRec->nysource = $nysource;
+        }
+        if ($nymedofisolation = (strip_tags($request->get('nymedofisolation')))) {
+            $nystrainsRec->nymedofisolation = $nymedofisolation;
+        }
+        if ($nymedforgrowth = (strip_tags($request->get('nymedforgrowth')))) {
+            $nystrainsRec->nymedforgrowth = $nymedforgrowth;
+        }
+        if ($nycomments = (strip_tags($request->get('nycomments')))) {
+            $nystrainsRec->nycomments = $nycomments;
+        }
         $nystrainsRec->save();
 
         return view('profile', [

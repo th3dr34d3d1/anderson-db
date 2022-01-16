@@ -45,8 +45,6 @@ class SearchController extends Controller
             ->orWhere('psource', 'LIKE', '%' . $query . '%')
             ->orWhere('pconcentration', 'LIKE', '%' . $query . '%')
             ->orWhere('plasmidsize', 'LIKE', '%' . $query . '%')
-            ->orWhere('plasmidfile', 'LIKE', '%' . $query . '%')
-            ->orWhere('plasmidimage', 'LIKE', '%' . $query . '%')
             ->orWhere('pcomments', 'LIKE', '%' . $query . '%')
             ->get();
 

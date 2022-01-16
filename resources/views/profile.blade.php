@@ -29,7 +29,7 @@
 
                         <div class="p-6">
                             <div class="flex items-center">
-                                <div class="ml-4 text-lg leading-7 font-semibold">
+                                <div class="ml-4 text-lg leading-7 font-semibold" style="font-size: 20px;">
                                         <table>
                                             @switch ($view_type)
                                                 @case ('oligos')
@@ -78,46 +78,43 @@
 
                                                                 <div>
                                                                     Oligos Number:
-                                                                    <span class='text-xs'>{{ $record->id }}</span>
+                                                                    <span class='text-base'>{{ $record->id }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Name:
-                                                                    <span class='text-xs'>{{ $record->oname }}</span>
+                                                                    <span class='text-base'>{{ $record->oname }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Description:
-                                                                    <span class='text-xs'>{{ $record->odescription }}</span>
+                                                                    <span class='text-base'>{{ $record->odescription }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Sequence:
-                                                                    <span class='text-xs'>{{ $record->sequence }}</span>
+                                                                    <span class='text-base'>{{ $record->sequence }}</span>
                                                                 </div>
                                                                 <div>
                                                                     HybridTm:
-                                                                    <span class='text-xs'>{{ $record->hybridtm }}</span>
+                                                                    <span class='text-base'>{{ $record->hybridtm }}</span>
                                                                 </div>
                                                                 <div>
                                                                     LengthBases:
-                                                                    <span class='text-xs'>{{ $record->lengthbases }}</span>
+                                                                    <span class='text-base'>{{ $record->lengthbases }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Designed By:
-                                                                    <span class='text-xs'>{{ $record->designedby }}</span>
+                                                                    <span class='text-base'>{{ $record->designedby }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Made By:
-                                                                    <span class='text-xs'>{{ $record->madeby }}</span>
+                                                                    <span class='text-base'>{{ $record->madeby }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Date Made:
-                                                                    <span class='text-xs'>{{ $record->datemade }}</span>
+                                                                    <span class='text-base'>{{ $record->datemade }}</span>
                                                                 </div>
                                                             @endif
                                                         </div>
 
-                                                        <div>
-                                                            Image goes here
-                                                        </div>
                                                     </div>
                                                 @break
 
@@ -125,7 +122,7 @@
                                                         <div class="grid grid-cols-2 md:grid-cols-2">
                                                             <div>
                                                             @if ($is_edit)
-                                                                <form action="/save/plasmids/{{ $record->id }}" method="POST" role="search">
+                                                                <form action="/save/plasmids/{{ $record->id }}" method="POST" role="search" enctype="multipart/form-data">
                                                                     @csrf
                                                                     <div>
                                                                         Plasmid Name:
@@ -169,13 +166,9 @@
                                                                     </div>
                                                                     <div>
                                                                         Plasmid File:
-                                                                        <input value="{{ $record->plasmidfile }}" id='plasmidfile' type="text" class="form-control" name="plasmidfile"><br>
+                                                                        <input id='plasmidfile' type="file" class="form-control" name="plasmidfile"><br>
                                                                     </div>
 
-                                                                    <div>
-                                                                        Plasmid Image:
-                                                                        <input value="{{ $record->plasmidimage }}" id='plasmidimage' type="text" class="form-control" name="plasmidimage"><br>
-                                                                    </div>
                                                                     <div>
                                                                         Comments:
                                                                         <input value="{{ $record->pcomments }}" id='pcomments' type="text" class="form-control" name="pcomments"><br>
@@ -187,64 +180,61 @@
 
                                                                 <div>
                                                                     Plasmid Number:
-                                                                    <span class='text-xs'>{{ $record->id }}</span>
+                                                                    <span class='text-base'>{{ $record->id }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Plasmid Name:
-                                                                    <span class='text-xs'>{{ $record->plasmidname }}</span>
+                                                                    <span class='text-base'>{{ $record->plasmidname }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Detailed Name:
-                                                                    <span class='text-xs'>{{ $record->pdname }}</span>
+                                                                    <span class='text-base'>{{ $record->pdname }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Date Made:
-                                                                    <span class='text-xs'>{{ $record->pdatemade }}</span>
+                                                                    <span class='text-base'>{{ $record->pdatemade }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Entered By:
-                                                                    <span class='text-xs'>{{ $record->penteredby }}</span>
+                                                                    <span class='text-base'>{{ $record->penteredby }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Sequence:
-                                                                    <span class='text-xs'>{{ $record->psequence }}</span>
+                                                                    <span class='text-base'>{{ $record->psequence }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Function/Usage:
-                                                                    <span class='text-xs'>{{ $record->pusage }}</span>
+                                                                    <span class='text-base'>{{ $record->pusage }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Source:
-                                                                    <span class='text-xs'>{{ $record->psource }}</span>
+                                                                    <span class='text-base'>{{ $record->psource }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Concentration:
-                                                                    <span class='text-xs'>{{ $record->pconcentration }}</span>
+                                                                    <span class='text-base'>{{ $record->pconcentration }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Markers:
-                                                                    <span class='text-xs'>{{ $record->pmarkers }}</span>
+                                                                    <span class='text-base'>{{ $record->pmarkers }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Plasmid Size:
-                                                                    <span class='text-xs'>{{ $record->plasmidsize }}</span>
+                                                                    <span class='text-base'>{{ $record->plasmidsize }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Plasmid File:
-                                                                    <span class='text-xs'>{{ $record->plasmidfile }}</span>
+                                                                    <span class='text-base'>{{ $record->plasmidfile }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Plasmid Image:
-                                                                    <span class='text-xs'>{{ $record->plasmidimage }}</span>
+                                                                    <span class='text-base'>{{ $record->plasmidimage }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Comments:
-                                                                    <span class='text-xs'>{{ $record->pcomments }}</span>
+                                                                    <span class='text-base'>{{ $record->pcomments }}</span>
                                                                 </div>
                                                             </div>
-                                                        <div>
-                                                            Image goes here
-                                                        </div>
                                                         @endif
                                                     </div>
                                                 @break
@@ -311,61 +301,58 @@
 
                                                                 <div>
                                                                     Strain Number:
-                                                                    <span class='text-xs'>{{ $record->id }}</span>
+                                                                    <span class='text-base'>{{ $record->id }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Strain Name:
-                                                                    <span class='text-xs'>{{ $record->strainname }}</span>
+                                                                    <span class='text-base'>{{ $record->strainname }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Date:
-                                                                    <span clss='text-xs'>{{ $record->sdateentered }}</span>
+                                                                    <span clss='text-base'>{{ $record->sdateentered }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Entered By:
-                                                                    <span class='text-xs'>{{ $record->senteredby }}</span>
+                                                                    <span class='text-base'>{{ $record->senteredby }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Species:
-                                                                    <span class='text-xs'>{{ $record->sspecies }}</span>
+                                                                    <span class='text-base'>{{ $record->sspecies }}</span>
                                                                 </div>
                                                                 <div>
                                                                     MAT:
-                                                                    <span class='text-xs'>{{ $record->smat }}</span>
+                                                                    <span class='text-base'>{{ $record->smat }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Background:
-                                                                    <span class='text-xs'>{{ $record->sbkgnd }}</span>
+                                                                    <span class='text-base'>{{ $record->sbkgnd }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Reports & Markers:
-                                                                    <span class='text-xs'>{{ $record->srepandmarkers }}</span>
+                                                                    <span class='text-base'>{{ $record->srepandmarkers }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Used Often:
-                                                                    <span class='text-xs'>{{ $record->susedoften }}</span>
+                                                                    <span class='text-base'>{{ $record->susedoften }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Auxotrophies:
-                                                                    <span class='text-xs'>{{ $record->sauxotrophies }}</span>
+                                                                    <span class='text-base'>{{ $record->sauxotrophies }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Cross/Transformation:
-                                                                    <span class='text-xs'>{{ $record->sxtransform }}</span>
+                                                                    <span class='text-base'>{{ $record->sxtransform }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Source:
-                                                                    <span class='text-xs'>{{ $record->ssource }}</span>
+                                                                    <span class='text-base'>{{ $record->ssource }}</span>
                                                                 </div>
                                                                 <div class='row-span-3'>
                                                                     Comments:
-                                                                    <span class='text-xs'>{{ $record->scomments }}</span>
+                                                                    <span class='text-base'>{{ $record->scomments }}</span>
                                                                 </div>
                                                             </div>
 
-                                                        <div>
-                                                            Image goes here
-                                                        </div>
                                                         @endif
                                                     </div>
                                                 @break
@@ -424,53 +411,50 @@
                                                             @else
                                                                 <div>
                                                                     Strain Number:
-                                                                    <span class='text-xs'>{{ $record->id }}</span>
+                                                                    <span class='text-base'>{{ $record->id }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Strain Type:
-                                                                    <span class='text-xs'>{{ $record->nystraintype }}</span>
+                                                                    <span class='text-base'>{{ $record->nystraintype }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Strain Name:
-                                                                    <span class='text-xs'>{{ $record->nystrainname }}</span>
+                                                                    <span class='text-base'>{{ $record->nystrainname }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Date:
-                                                                    <span class='text-xs'>{{ $record->nydate }}</span>
+                                                                    <span class='text-base'>{{ $record->nydate }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Entered By:
-                                                                    <span class='text-xs'>{{ $record->nyenteredby }}</span>
+                                                                    <span class='text-base'>{{ $record->nyenteredby }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Genus:
-                                                                    <span class='text-xs'>{{ $record->nygenus }}</span>
+                                                                    <span class='text-base'>{{ $record->nygenus }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Species:
-                                                                    <span class='text-xs'>{{ $record->nyspecies }}</span>
+                                                                    <span class='text-base'>{{ $record->nyspecies }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Source:
-                                                                    <span class='text-xs'>{{ $record->nysource }}</span>
+                                                                    <span class='text-base'>{{ $record->nysource }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Medium of Isolation:
-                                                                    <span class='text-xs'>{{ $record->nymedofisolation }}</span>
+                                                                    <span class='text-base'>{{ $record->nymedofisolation }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Medium for Growth:
-                                                                    <span class='text-xs'>{{ $record->nymedforgrowth }}</span>
+                                                                    <span class='text-base'>{{ $record->nymedforgrowth }}</span>
                                                                 </div>
                                                                 <div>
                                                                     Comments:
-                                                                    <span class='text-xs'>{{ $record->nycomments }}</span>
+                                                                    <span class='text-base'>{{ $record->nycomments }}</span>
                                                                 </div>
                                                             </div>
 
-                                                        <div>
-                                                            Image goes here
-                                                        </div>
                                                         @endif
                                                     </div>
                                                 @break

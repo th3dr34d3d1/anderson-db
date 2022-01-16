@@ -65,14 +65,17 @@
                                         <label for='psource'>Source</label>
                                         <input id='psource' type="text" class="form-control" name="psource"><br>
 
+                                        <label for='pconcentration'>Concentration</label>
+                                        <input id='pconcentration' type="text" class="form-control" name="pconcentration"><br>
+
+                                        <label for='pmarkers'>Markers</label>
+                                        <input id='pmarkers' type="text" class="form-control" name="pmarkers"><br>
+
                                         <label for='plasmidsize'>Plasmid Size</label>
                                         <input id='plasmidsize' type="text" class="form-control" name="plasmidsize"><br>
 
                                         <label for='plasmidfile'>Plasmid File</label>
-                                        <input id='plasmidfile' type="text" class="form-control" name="plasmidfile"><br>
-
-                                        <label for='plasmidimage'>Plasmid Image</label>
-                                        <input id='plasmidimage' type="text" class="form-control" name="plasmidimage"><br>
+                                        <input type="file" class="form-control" name="plasmidfile"><br>
 
                                         <label for='pcomments'>Comments</label>
                                         <input id='pcomments' type="text" class="form-control" name="pcomments"><br><br>

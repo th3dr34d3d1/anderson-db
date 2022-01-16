@@ -11,6 +11,7 @@ use App\Models\Oligos;
 use App\Models\Plasmids;
 use App\Models\Strains;
 use App\Models\Nonyeaststrains;
+use App\Models\PlasmidImages;
 
 class CreateController extends Controller
 {
@@ -109,10 +110,6 @@ class CreateController extends Controller
             $plasmidsRec->plasmidsize = $psize;
         }
 
-        if ($plasmidfile = strip_tags($request->get('plasmidfile'))) {
-            $plasmidsRec->plasmidfile = $plasmidfile;
-        }
-
         if ($pimage = strip_tags($request->get('plasmidimage'))) {
             $plasmidsRec->plasmidimage = $pimage;
         }
@@ -123,6 +120,19 @@ class CreateController extends Controller
 
         $plasmidsRec->save();
 
+        if ($file = $request->file('plasmidfile')) {
+            $path = $file->store('plasmid_files');
+            $name = $file->getClientOriginalName();
+            $extension = $file->getClientOriginalExtension();
+
+            $plasmidImagesRec = new PlasmidImages();
+            $plasmidImagesRec->plasmid_id = $plasmidsRec->id;
+            $plasmidImagesRec->filepath = $path;
+            $plasmidImagesRec->filename = $name;
+            $plasmidImagesRec->extension = $extension;
+
+            $plasmidImagesRec->save();
+        }
         return view('profile', [
             'record' => $plasmidsRec,
             'is_edit' => false,

@@ -58,8 +58,6 @@
                                                 <th>Function/Usage</th>
                                                 <th>Source</th>
                                                 <th>Plasmid Size</th>
-                                                <th>Plasmid File</th>
-                                                <th>Plasmid Image</th>
                                                 <th>Comments</th>
 
                                                 @foreach ($results as $result)
@@ -76,8 +74,6 @@
                                                         <td>{{ $result->pusage }}</td>
                                                         <td>{{ $result->pconcentration }}</td>
                                                         <td>{{ $result->plasmidsize }}</td>
-                                                        <td>{{ $result->plasmidfile }}</td>
-                                                        <td>{{ $result->plasmidimage }}</td>
                                                         <td>{{ $result->pcomments }}</td>
                                                     </tr>
                                                 @endforeach

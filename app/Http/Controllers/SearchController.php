@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 //use App\Models\Oligos;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 
 //controller handling search capability
@@ -17,6 +18,12 @@ class SearchController extends Controller
 	public function oligos(Request $request)
 	{
         $query = strip_tags($request->get('query'));
+        if (! $query) {
+            $query = Session::get('last_oligos_query');
+        } else {
+            session(['last_oligos_query' => $query]);
+        }
+
         $oligos = DB::table('oligos')
             ->Where('oname', 'LIKE', '%' . $query . '%')
             ->orWhere('designedby', 'LIKE', '%' . $query . '%')
@@ -36,6 +43,11 @@ class SearchController extends Controller
 	public function plasmids(Request $request)
 	{
         $query = strip_tags($request->get('query'));
+        if (! $query) {
+            $query = Session::get('last_plasmids_query');
+        } else {
+            session(['last_plasmids_query' => $query]);
+        }
         $plasmids = DB::table('plasmids')
             ->where('plasmidname', 'LIKE', '%' . $query . '%')
             ->orWhere('pdname', 'LIKE', '%' . $query . '%')
@@ -58,6 +70,11 @@ class SearchController extends Controller
 	public function strains(Request $request)
 	{
         $query = strip_tags($request->get('query'));
+        if (! $query) {
+            $query = Session::get('last_strains_query');
+        } else {
+            session(['last_strains_query' => $query]);
+        }
         $strains = DB::table('strains')
             ->where('strainname', 'LIKE', '%' . $query . '%')
             ->orWhere('sspecies', 'LIKE', '%' . $query . '%')
@@ -81,6 +98,11 @@ class SearchController extends Controller
 	public function nonyeaststrains(Request $request)
 	{
         $query = strip_tags($request->get('query'));
+        if (! $query) {
+            $query = Session::get('last_nystrains_query');
+        } else {
+            session(['last_nystrains_query' => $query]);
+        }
         $nystrains = DB::table('nonyeaststrains')
             ->where('nystraintype', 'LIKE', '%' . $query . '%')
             ->orWhere('nystrainname', 'LIKE', '%' . $query . '%')

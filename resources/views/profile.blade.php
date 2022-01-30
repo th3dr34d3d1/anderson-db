@@ -88,7 +88,7 @@
                                                 @break
 
                                                 @case ('plasmids')
-                                                    <div class="grid grid-cols-2 md:grid-cols-2">
+                                                    <div class="grid grid-cols-1 md:grid-cols-1">
                                                         @if ($is_edit)
                                                             <form id='plasmids-edit-form' action="/save/plasmids/{{ $record->id }}" method="POST" role="search" enctype="multipart/form-data">
                                                                 @csrf
@@ -158,7 +158,7 @@
                                                 @break
 
                                                 @case ('strains')
-                                                    <div class="grid grid-cols-2 md:grid-cols-2">
+                                                    <div class="grid grid-cols-1 md:grid-cols-1">
 
                                                         @if ($is_edit)
                                                             <form id='strains-edit-form' action="/save/strains/{{ $record->id }}" method="POST" role="search">
@@ -227,7 +227,7 @@
                                                 @break
 
                                                 @case ('nystrains')
-                                                    <div class="grid grid-cols-2 md:grid-cols-2">
+                                                    <div class="grid grid-cols-1 md:grid-cols-1">
 
                                                         @if ($is_edit)
                                                             <form id='nystrains-edit-form' action="/save/nonyeaststrains/{{ $record->id }}" method="POST" role="search">
@@ -300,25 +300,23 @@
                                     <div>
                                     @if (! $is_edit)
                                         <form action='/edit/{{ $view_type }}/{{ $record->id }}' method='GET'>
-                                            <button type='submit'>Edit</button>
+                                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type='submit'>Edit</button>
                                         </form>
                                     @endif
                                     </div>
+                                    <br>
                                     <div>
                                         <form action="/search/oligos" method="GET" role="search">
                                             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type='submit'>Return to Search Results</button>
                                         </form>
                                     </div>
-
+                                    <br>
                                     @if ($is_edit)
                                         <div>
-                                            <button form="{{ $view_type . '-edit-form' }}" type='submit'>Save</button>
+                                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" form="{{ $view_type . '-edit-form' }}" type='submit'>Save</button>
                                         </div>
                                     @endif
 
-                                    <div>
-                                        <a href='/'>Home</a>
-                                    </div>
 
                                 </div>
                             </div>

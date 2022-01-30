@@ -48,7 +48,7 @@
                                         <input id='nystraintype' type="text" class="form-control" name="nystraintype"><br>
 
                                         <label for='nyname'>Non-Yeast Strain Name</label>
-                                        <input id='nyname' type="text" class="form-control" name="nyname"><br>
+                                        <input id='nyname' type="text" class="form-control" name="nystrainname"><br>
                                         
                                         <label for='nydate'>Date Made</label>
                                         <input id='nydate' type="date" class="form-control" name="nydate"><br>

@@ -23,9 +23,8 @@
                                             <input type="text" class="form-control" name="qdate"
                                             placeholder="Search Date"><br>
 
-                                            <button type="submit" class="btn btn-default">
-                                            Search Oligos
-                                            </button>
+                                            <br>
+                                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" type='submit'>Search Oligos</button>
                                         </div>
                                     </form>
                                 </div>
@@ -35,7 +34,7 @@
                         <div class="p-6">
                             <div class="flex items-center">
                                 <div class="ml-4 text-lg leading-7 font-semibold">
-                                    <h3>Enter New Oligo...</h3>
+                                    <h2>Enter New Oligo...</h2>
 
                                     <form action="/create/oligos" method="POST" role="search">
                                         @csrf
@@ -64,9 +63,8 @@
                                             <label for='odesignedby'>Designed By</label>
                                             <input id='odesignedby' type="text" class="form-control" name="designedby"><br>
 
-                                            <button id='create-oligos-btn' type="submit">
-                                                Create Oligo
-                                            </button>
+                                            <br>
+                                            <button id='create-oligos-btn' class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" type='submit'>Create Oligo</button>
                                         </div>
                                     </form>
                                 </div>

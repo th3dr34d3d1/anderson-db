@@ -33,7 +33,7 @@
                                         <table>
                                             @switch ($view_type)
                                                 @case ('oligos')
-                                                    <div class="grid grid-cols-2 md:grid-cols-2">
+                                                    <div class="grid grid-cols-1 md:grid-cols-1">
                                                         <div>
                                                             <div>
                                                                 Oligos Number:
@@ -84,7 +84,7 @@
                                                 @break
 
                                                     @case ('plasmids')
-                                                        <div class="grid grid-cols-2 md:grid-cols-2">
+                                                        <div class="grid grid-cols-1 md:grid-cols-1">
                                                             <div>
                                                                 <div>
                                                                     Plasmid Number:
@@ -138,7 +138,7 @@
                                                 @break
 
                                                 @case ('strains')
-                                                        <div class="grid grid-cols-2 md:grid-cols-2">
+                                                        <div class="grid grid-cols-1 md:grid-cols-1">
                                                             <div>
                                                                 <div>
                                                                     Strain Number:
@@ -197,7 +197,7 @@
                                                 @break
 
                                                 @case ('nystrains')
-                                                        <div class="grid grid-cols-2 md:grid-cols-2">
+                                                        <div class="grid grid-cols-1 md:grid-cols-1">
                                                             <div>
                                                                 <div>
                                                                     Strain Number:

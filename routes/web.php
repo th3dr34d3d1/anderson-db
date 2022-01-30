@@ -50,18 +50,22 @@ Route::post('/create/nonyeaststrains', [CreateController::class, 'nonyeaststrain
 
 
 Route::get('/strains', function () {
+    Session::forget('last_strains_query');
     return view('strains');
 })->middleware(['auth'])->name('strains');
 
 Route::get('/plasmids', function () {
+    Session::forget('last_plasmids_query');
     return view('plasmids');
 })->middleware(['auth'])->name('plasmids');
 
 Route::get('/nonyeaststrains', function () {
+    Session::forget('last_nystrains_query');
     return view('nonyeaststrains');
 })->middleware(['auth'])->name('nonyeaststrains');
 
 Route::get('/oligos', function () {
+    Session::forget('last_oligos_query');
     return view('oligos');
 })->middleware(['auth'])->name('oligos');
 

@@ -7,7 +7,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
-//use App\Models\Oligos;
+use App\Models\Plasmids;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
@@ -43,11 +43,26 @@ class SearchController extends Controller
 	public function plasmids(Request $request)
 	{
         $query = strip_tags($request->get('query'));
-        if (! $query) {
-            $query = Session::get('last_plasmids_query');
-        } else {
-            session(['last_plasmids_query' => $query]);
+        $by_id = strip_tags($request->get('id'));
+
+        if (! $query && ! $by_id) {
+            $saved_ids = Session::get('last_plasmids_query');
+            $recs = Plasmids::whereIn('id', $saved_ids)->get();
+            return view('searchResult', [
+                'results' => $recs,
+                'view_type' => 'plasmids'
+            ]);
         }
+
+        if ($by_id) {
+            $rec = Plasmids::where('id', $by_id)->first();
+            session(['last_plasmids_query' => [$rec->id]]);
+            return view('searchResult', [
+                'results' => [ $rec ],
+                'view_type' => 'plasmids'
+            ]);
+        }
+
         $plasmids = DB::table('plasmids')
             ->where('plasmidname', 'LIKE', '%' . $query . '%')
             ->orWhere('pdname', 'LIKE', '%' . $query . '%')
@@ -59,6 +74,12 @@ class SearchController extends Controller
             ->orWhere('plasmidsize', 'LIKE', '%' . $query . '%')
             ->orWhere('pcomments', 'LIKE', '%' . $query . '%')
             ->get();
+
+        $holder = [];
+        foreach($plasmids as $plasmid) {
+            $holder[] = $plasmid->id;
+        }
+        session(['last_plasmids_query' => $holder]);
 
 		return view('searchResult', [
             'results' => $plasmids,

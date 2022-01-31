@@ -7,11 +7,11 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Oligos;
 use App\Models\Plasmids;
 use App\Models\Strains;
 use App\Models\Nonyeaststrains;
-use App\Models\PlasmidImages;
 
 class CreateController extends Controller
 {
@@ -56,10 +56,8 @@ class CreateController extends Controller
         }
         $oligosRec->save();
 
-        return view('profile', [
-            'record' => $oligosRec,
-            'is_edit' => false,
-            'view_type' => 'oligos'
+        return redirect()->route('profile_oligos', [
+            'id' => $oligosRec->id
         ]);
     }
 
@@ -110,33 +108,38 @@ class CreateController extends Controller
             $plasmidsRec->plasmidsize = $psize;
         }
 
-        if ($pimage = strip_tags($request->get('plasmidimage'))) {
-            $plasmidsRec->plasmidimage = $pimage;
-        }
-
         if ($pcomments = strip_tags($request->get('pcomments'))) {
             $plasmidsRec->pcomments = $pcomments;
         }
 
-        $plasmidsRec->save();
-
+        $file_data = [];
         if ($file = $request->file('plasmidfile')) {
+            // remove the existing dna file from the disk
+            if ($plasmidsRec->dna_filepath) {
+                Storage::delete($plasmidsRec->dna_filepath);
+            }
             $path = $file->store('plasmid_files');
             $name = $file->getClientOriginalName();
-            $extension = $file->getClientOriginalExtension();
 
-            $plasmidImagesRec = new PlasmidImages();
-            $plasmidImagesRec->plasmid_id = $plasmidsRec->id;
-            $plasmidImagesRec->filepath = $path;
-            $plasmidImagesRec->filename = $name;
-            $plasmidImagesRec->extension = $extension;
-
-            $plasmidImagesRec->save();
+            $plasmidsRec->dna_filepath = $path;
+            $plasmidsRec->dna_filename = $name;
         }
-        return view('profile', [
-            'record' => $plasmidsRec,
-            'is_edit' => false,
-            'view_type' => 'plasmids'
+
+        if ($file = $request->file('plasmidimage')) {
+            // remove the existing image file from the disk
+            if ($plasmidsRec->img_filepath) {
+                Storage::delete($plasmidsRec->img_filepath);
+            }
+            $path = $file->store('plasmid_images');
+
+            $name = $file->getClientOriginalName();
+            $plasmidsRec->img_filepath = $path;
+            $plasmidsRec->img_filename = $name;
+        }
+        $plasmidsRec->save();
+
+        return redirect()->route('profile_plasmids', [
+            'id' => $plasmidsRec->id
         ]);
     }
 
@@ -197,10 +200,8 @@ class CreateController extends Controller
 
         $strainsRec->save();
 
-        return view('profile', [
-            'record' => $strainsRec,
-            'is_edit' => false,
-            'view_type' => 'strains'
+        return redirect()->route('profile_strains', [
+            'id' => $strainsRec->id
         ]);
     }
 
@@ -245,10 +246,8 @@ class CreateController extends Controller
         }
         $nystrainsRec->save();
 
-        return view('profile', [
-            'record' => $nystrainsRec,
-            'is_edit' => false,
-            'view_type' => 'nystrains'
+        return redirect()->route('profile_nystrains', [
+            'id' => $nystrainsRec->id
         ]);
     }
 }

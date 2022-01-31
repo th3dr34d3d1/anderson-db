@@ -27,6 +27,7 @@ class ProfileController extends Controller
 	public function plasmids($id)
 	{
         $rec = Plasmids::where('id', $id)->first();
+
         return view('profile', [
             'record' => $rec,
             'is_edit' => false,

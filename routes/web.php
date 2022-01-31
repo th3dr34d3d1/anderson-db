@@ -26,7 +26,7 @@ Route::get('/', function () {
 Route::get('/search/oligos', [SearchController::class, 'oligos'])->middleware(['auth'])->name('search_oligos');
 Route::get('/search/plasmids', [SearchController::class, 'plasmids'])->middleware(['auth'])->name('search_plasmids');
 Route::get('/search/strains', [SearchController::class, 'strains'])->middleware(['auth'])->name('search_strains');
-Route::get('/search/nonyeaststrains', [SearchController::class, 'nonyeaststrains'])->middleware(['auth'])->name('search_nonyeaststrains');
+Route::get('/search/nystrains', [SearchController::class, 'nonyeaststrains'])->middleware(['auth'])->name('search_nonyeaststrains');
 
 Route::get('/profile/oligos/{id}', [ProfileController::class, 'oligos'])->middleware(['auth'])->name('profile_oligos');
 Route::get('/profile/plasmids/{id}', [ProfileController::class, 'plasmids'])->middleware(['auth'])->name('profile_plasmids');

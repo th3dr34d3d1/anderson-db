@@ -143,12 +143,16 @@
                                                     </div>
                                                     <div>
                                                         Plasmid File:
-                                                        <span class='text-base'>{{ $record->plasmidfile }}</span>
+                                                        <span class='text-base'>{{ $record->dna_filename }}</span>
                                                     </div>
-                                                    <div>
-                                                        Plasmid Image:
-                                                        <span class='text-base'>{{ $record->plasmidimage }}</span>
-                                                    </div>
+                                                    @if ($record->img_filepath)
+                                                        <div>
+                                                            Plasmid Image:
+                                                                <span class='text-base'>{{ $record->img_filename }}</span>
+                                                                <img src='{{ asset($record->img_filepath) }}'>
+                                                        </div>
+                                                    @endif
+
                                                     <div>
                                                         Comments:
                                                         <span class='text-base'>{{ $record->pcomments }}</span>

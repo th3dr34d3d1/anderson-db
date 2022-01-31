@@ -17,6 +17,9 @@
                                 <form action="/search/plasmids" method="GET" role="search">
 
                                     <div class="input-group">
+                                        <input id="id-search-bar" type="text" class="form-control" name="id"
+                                        placeholder="Search By ID"><br>
+
                                         <input id="search-bar" type="text" class="form-control" name="query"
                                         placeholder="Search Text"><br>
 
@@ -36,12 +39,12 @@
                         <div class="flex items-center">
                             <div class="ml-4 text-lg leading-7 font-semibold">
                                 <h3>Enter New Plasmid...</h3>
-                                @if ($errors->any()) 
+                                @if ($errors->any())
                                     @foreach ($errors->all() as $err)
                                         <h4>{{ $err }}</h4>
                                     @endforeach
                                 @endif
-                                <form action="/create/plasmids" method="POST" role="search">
+                                <form action="/create/plasmids" method="POST" role="search" enctype="multipart/form-data">
                                     @csrf
                                     <div class="input-group">
                                         <label for='plasmidname'>Plasmid Name</label>
@@ -49,13 +52,13 @@
 
                                         <label for='pdname'>Detailed Name</label>
                                         <input id='pdname' type="text" class="form-control" name="pdname"><br>
-                                        
+
                                         <label for='pdatemade'>Date Made</label>
                                         <input id='pdatemade' type="date" class="form-control" name="pdatemade"><br><br>
-                                        
+
                                         <label for='penteredby'>Entered By</label>
                                         <input id='penteredby' type="text" class="form-control" name="penteredby"><br>
-                                        
+
                                         <label for='psequence'>Sequence</label>
                                         <input id='psequence' type="text" class="form-control" name="psequence"><br>
 
@@ -76,6 +79,9 @@
 
                                         <label for='plasmidfile'>Plasmid File</label>
                                         <input type="file" class="form-control" name="plasmidfile"><br>
+
+                                        <label for='plasmidimage'>Plasmid Image</label>
+                                        <input type="file" class="form-control" name="plasmidimage"><br>
 
                                         <label for='pcomments'>Comments</label>
                                         <input id='pcomments' type="text" class="form-control" name="pcomments"><br><br>

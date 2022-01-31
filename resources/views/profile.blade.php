@@ -136,6 +136,10 @@
                                                                     Plasmid File:
                                                                     <input id='plasmidfile' type="file" class="form-control" name="plasmidfile"><br>
                                                                 </div>
+                                                                <div>
+                                                                    Plasmid Image:
+                                                                    <input id='plasmidimage' type="file" class="form-control" name="plasmidimage"><br>
+                                                                </div>
 
                                                                 <div>
                                                                     Comments:
@@ -306,7 +310,7 @@
                                     </div>
                                     <br>
                                     <div>
-                                        <form action="/search/oligos" method="GET" role="search">
+                                        <form action="/search/{{ $view_type }}" method="GET" role="search">
                                             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type='submit'>Return to Search Results</button>
                                         </form>
                                     </div>

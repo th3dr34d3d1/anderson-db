@@ -14,7 +14,7 @@
                         <div class="flex items-center">
                             <div class="ml-4 text-lg leading-7 font-semibold">
                                 <h3>Search Non-Yeast Strains...</h3>
-                                <form action="/search/nonyeaststrains" method="GET" role="search">
+                                <form action="/search/nystrains" method="GET" role="search">
 
                                     <div class="input-group">
                                         <input id="search-bar" type="text" class="form-control" name="query"
@@ -36,7 +36,7 @@
                         <div class="flex items-center">
                             <div class="ml-4 text-lg leading-7 font-semibold">
                                 <h3>Enter New Non-Yeast Strain...</h3>
-                                @if ($errors->any()) 
+                                @if ($errors->any())
                                     @foreach ($errors->all() as $err)
                                         <h4>{{ $err }}</h4>
                                     @endforeach
@@ -49,7 +49,7 @@
 
                                         <label for='nyname'>Non-Yeast Strain Name</label>
                                         <input id='nyname' type="text" class="form-control" name="nystrainname"><br>
-                                        
+
                                         <label for='nydate'>Date Made</label>
                                         <input id='nydate' type="date" class="form-control" name="nydate"><br>
 
@@ -70,7 +70,7 @@
 
                                         <label for='nymedforgrowth'>Medium for Growth</label>
                                         <input id='nymedforgrowth' type="text" class="form-control" name="nymedforgrowth"><br>
-                                        
+
                                         <label for='nycomments'>Comments</label>
                                         <input id='nycomments' type="text" class="form-control" name="nycomments"><br>
 

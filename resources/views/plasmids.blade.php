@@ -24,11 +24,10 @@
                                         placeholder="Search Text"><br>
 
                                         <input type="text" class="form-control" name="qdate"
-                                        placeholder="Search Date"><br><br>
+                                        placeholder="Search Date"><br>
 
-                                        <button type="submit" class="btn btn-default">
-                                        Search Plasmids
-                                        </button>
+                                        <br>
+                                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" type='submit'>Search Plasmids</button>
                                     </div>
                                 </form>
                             </div>
@@ -86,9 +85,7 @@
                                         <label for='pcomments'>Comments</label>
                                         <input id='pcomments' type="text" class="form-control" name="pcomments"><br><br>
 
-                                        <button type="submit" class="btn default">
-                                        Create Plasmid
-                                        </button>
+                                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" type='submit'>Create Plasmid</button>
                                     </div>
                                 </form>
                             </div>

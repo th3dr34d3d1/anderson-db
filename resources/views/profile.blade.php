@@ -143,7 +143,7 @@
 
                                                                 <div>
                                                                     Comments:
-                                                                    <input value="{{ $record->pcomments }}" id='pcomments' type="text" class="form-control" name="pcomments"><br>
+                                                                    <textarea id='pcomments' type="text" class="form-control" name="pcomments">{{ $record->pcomments }}</textarea><br>
                                                                 </div>
 
                                                             </form>
@@ -275,7 +275,7 @@
                                                                 </div>
                                                                 <div>
                                                                     Comments:
-                                                                    <input value="{{ $record->nycomments }}" id='nycomments' type="text" class="form-control" name="nycomments"><br>
+                                                                    <textarea id='nycomments' type="text" class="form-control" name="nycomments">{{ $record->nycomments }}</textarea><br>
                                                                 </div>
 
                                                             </form>
@@ -309,19 +309,20 @@
                                     @endif
                                     </div>
                                     <br>
-                                    <div>
-                                        <form action="/search/{{ $view_type }}" method="GET" role="search">
-                                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type='submit'>Return to Search Results</button>
-                                        </form>
-                                    </div>
-                                    <br>
+                                    
                                     @if ($is_edit)
                                         <div>
                                             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" form="{{ $view_type . '-edit-form' }}" type='submit'>Save</button>
                                         </div>
                                     @endif
-
-
+                                    
+                                    <br> 
+                                    <div>
+                                        <form action="{{'/search/' . $view_type }}" method="GET" role="search">
+                                            <input type='hidden' name='get_last_result' value=1>
+                                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type='submit'>Return to Search Results</button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>

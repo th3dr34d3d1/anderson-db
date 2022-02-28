@@ -17,15 +17,17 @@
                                 <form action="/search/strains" method="GET" role="search">
 
                                     <div class="input-group">
+                                        <input id="id-search-bar" type="text" class="form-control" name="id"
+                                        placeholder="Search By ID"><br>
+                                        
                                         <input id="search-bar" type="text" class="form-control" name="qstrain"
                                         placeholder="Search Text"><br>
 
                                         <input type="text" class="form-control" name="qdate"
                                         placeholder="Search Date"><br>
 
-                                        <button type="submit" class="btn btn-default">
-                                        Search Strains
-                                        </button>
+                                        <br>
+                                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" type='submit'>Search Strains</button>
                                     </div>
                                 </form>
                             </div>
@@ -76,10 +78,8 @@
                                         <label for='scomments'>Comments</label>
                                         <input id='scomments' type="text" class="form-control" name="scomments"><br>
                                         
-                                        
-                                        <button type="submit" class="btn btn-default">
-                                        Create Strain
-                                        </button>
+                                        <br>
+                                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" type='submit'>Create Strain</button>
                                     </div>
                                 </form>
                             </div>

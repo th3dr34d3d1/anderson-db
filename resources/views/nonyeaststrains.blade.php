@@ -17,15 +17,16 @@
                                 <form action="/search/nystrains" method="GET" role="search">
 
                                     <div class="input-group">
+                                        <input id="id-search-bar" type="text" class="form-control" name="id"
+                                        placeholder="Search By ID"><br>
+                                        
                                         <input id="search-bar" type="text" class="form-control" name="query"
                                         placeholder="Search Text"><br>
 
                                         <input type="text" class="form-control" name="qdate"
                                         placeholder="Search Date"><br>
-
-                                        <button type="submit" class="btn btn-default">
-                                        Search Non-Yeast Strains
-                                        </button>
+                                        <br>
+                                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" type='submit'>Search Non-Yeast Strains</button>
                                     </div>
                                 </form>
                             </div>
@@ -72,11 +73,9 @@
                                         <input id='nymedforgrowth' type="text" class="form-control" name="nymedforgrowth"><br>
 
                                         <label for='nycomments'>Comments</label>
-                                        <input id='nycomments' type="text" class="form-control" name="nycomments"><br>
-
-                                        <button type="submit" class="btn btn-default">
-                                        Create Non-Yeast Strain
-                                        </button>
+                                        <textarea input id='nycomments' type="text" class="form-control" name="nycomments"></textarea><br>
+                                        <br> 
+                                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" type='submit'>Create Non-Yeast Strain</button>
                                     </div>
                                 </form>
                             </div>

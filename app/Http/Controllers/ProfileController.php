@@ -10,6 +10,7 @@ use App\Models\Oligos;
 use App\Models\Plasmids;
 use App\Models\Strains;
 use App\Models\Nonyeaststrains;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 
 
@@ -33,6 +34,12 @@ class ProfileController extends Controller
             'is_edit' => false,
             'view_type' => 'plasmids'
         ]);
+    }
+    public function download($id)
+    {
+        $rec = Plasmids::where('id', $id)->first();
+        return Storage::download($rec->dna_filepath, $rec->dna_filename);
+
     }
 
 	public function strains($id)

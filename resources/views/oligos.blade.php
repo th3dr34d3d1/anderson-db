@@ -17,6 +17,9 @@
                                     <form action="/search/oligos" method="GET" role="search">
 
                                         <div class="input-group">
+                                            <input id="id-search-bar" type="text" class="form-control" name="id"
+                                             placeholder="Search By ID"><br>
+                                            
                                             <input id="search-bar" type="text" class="form-control" name="query"
                                             placeholder="Search Text"><br>
 

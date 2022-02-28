@@ -49,6 +49,8 @@ Route::post('/create/strains', [CreateController::class, 'strains'])->middleware
 Route::post('/create/nonyeaststrains', [CreateController::class, 'nonyeaststrains'])->middleware(['auth'])->name('nonyeaststrains_create');
 
 
+Route::get('/download/plasmid/{id}', [ProfileController::class, 'download'])->middleware(['auth'])->name('download_plasmids');
+
 Route::get('/strains', function () {
     Session::forget('last_strains_query');
     return view('strains');

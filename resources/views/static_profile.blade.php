@@ -143,13 +143,14 @@
                                                     </div>
                                                     <div>
                                                         Plasmid File:
-                                                        <span class='text-base'>{{ $record->dna_filename }}</span>
+                                                       <a href={{ url('/download/plasmid/' .$record->id) }} <span class='text-base'>{{ $record->dna_filename }}</span></a>
                                                     </div>
                                                     @if ($record->img_filepath)
                                                         <div>
                                                             Plasmid Image:
                                                                 <span class='text-base'>{{ $record->img_filename }}</span>
-                                                                <img src='{{ asset($record->img_filepath) }}'>
+                                                                <img src="{{ asset($record->img_filepath) }}">
+                                                                <img src="{{ asset('/unique/test.jpg') }}">
                                                         </div>
                                                     @endif
 

@@ -93,8 +93,7 @@ class SearchController extends Controller
 
 
         $plasmids = DB::table('plasmids')
-            ->where('plasmidname', 'LIKE', '%' . $query . '%')
-            ->orWhere('pdname', 'LIKE', '%' . $query . '%')
+            ->where('pdname', 'LIKE', '%' . $query . '%')
             ->orWhere('penteredby', 'LIKE', '%' . $query . '%')
             ->orWhere('psequence', 'LIKE', '%' . $query . '%')
             ->orWhere('pusage', 'LIKE', '%' . $query . '%')

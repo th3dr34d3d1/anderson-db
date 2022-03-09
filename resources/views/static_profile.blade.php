@@ -98,12 +98,8 @@
                                             @case ('plasmids')
                                                 <div class="grid grid-cols-1 md:grid-cols-1">
                                                     <div>
-                                                        Plasmid Number:
-                                                        <span class='text-base'>{{ $record->id }}</span>
-                                                    </div>
-                                                    <div>
                                                         Plasmid Name:
-                                                        <span class='text-base'>{{ $record->plasmidname }}</span>
+                                                        <span class='text-base'>P{{ $record->id }}</span>
                                                     </div>
                                                     <div>
                                                         Detailed Name:

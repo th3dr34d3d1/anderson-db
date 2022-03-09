@@ -69,10 +69,6 @@ class CreateController extends Controller
             $plasmidsRec = new Plasmids();
         }
 
-        if ($name = strip_tags($request->get('plasmidname'))) {
-            $plasmidsRec->plasmidname = $name;
-        }
-
         if ($pdname = strip_tags($request->get('pdname'))) {
             $plasmidsRec->pdname = $pdname;
         }

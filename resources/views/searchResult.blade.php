@@ -13,73 +13,67 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-1">
                         <div class="p-6">
-                            <div class="flex items-center">
-                                <div class="ml-4 text-lg leading-7 font-semibold">
+                            <div class="ml-4 text-lg leading-7 font-semibold">
+                                <table>
+                                    @switch ($view_type)
+                                        @case ('oligos')
 
+                                            @foreach ($results as $result)
+                                                @include(
+                                                'static_profile',
+                                                    [
+                                                        'view_type' => $view_type,
+                                                        'show_view_profile_link' => true,
+                                                        'record' => $result
+                                                    ]
+                                                )
+                                            @endforeach
 
-                                    <table>
-                                        @switch ($view_type)
-                                            @case ('oligos')
+                                        @break
 
-                                                @foreach ($results as $result)
-                                                    @include(
-                                                    'static_profile',
-                                                        [
-                                                            'view_type' => $view_type,
-                                                            'show_view_profile_link' => true,
-                                                            'record' => $result
-                                                        ]
-                                                    )
-                                                @endforeach
+                                        @case ('plasmids')
+                                            @foreach ($results as $result)
+                                                @include(
+                                                'static_profile',
+                                                    [
+                                                        'view_type' => $view_type,
+                                                        'show_view_profile_link' => true,
+                                                        'record' => $result
+                                                    ]
+                                                )
+                                            @endforeach
+                                        @break
 
-                                            @break
+                                        @case ('strains')
+                                            @foreach ($results as $result)
+                                                @include(
+                                                'static_profile',
+                                                    [
+                                                        'view_type' => $view_type,
+                                                        'show_view_profile_link' => true,
+                                                        'record' => $result
+                                                    ]
+                                                )
+                                            @endforeach
+                                        @break
 
-                                            @case ('plasmids')
-                                                @foreach ($results as $result)
-                                                    @include(
-                                                    'static_profile',
-                                                        [
-                                                            'view_type' => $view_type,
-                                                            'show_view_profile_link' => true,
-                                                            'record' => $result
-                                                        ]
-                                                    )
-                                                @endforeach
-                                            @break
-
-                                            @case ('strains')
-                                                @foreach ($results as $result)
-                                                    @include(
-                                                    'static_profile',
-                                                        [
-                                                            'view_type' => $view_type,
-                                                            'show_view_profile_link' => true,
-                                                            'record' => $result
-                                                        ]
-                                                    )
-                                                @endforeach
-                                            @break
-
-                                            @case ('nystrains')
-                                                @foreach ($results as $result)
-                                                    @include(
-                                                    'static_profile',
-                                                        [
-                                                            'view_type' => $view_type,
-                                                            'show_view_profile_link' => true,
-                                                            'record' => $result
-                                                        ]
-                                                    )
-                                                @endforeach
-                                            @break
-                                        @endswitch
-                                    </table>
-                                </div>
+                                        @case ('nystrains')
+                                            @foreach ($results as $result)
+                                                @include(
+                                                'static_profile',
+                                                    [
+                                                        'view_type' => $view_type,
+                                                        'show_view_profile_link' => true,
+                                                        'record' => $result
+                                                    ]
+                                                )
+                                            @endforeach
+                                        @break
+                                    @endswitch
+                                </table>
                             </div>
-                            <a href='/'>Home</a>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

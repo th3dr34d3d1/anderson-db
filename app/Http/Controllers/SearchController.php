@@ -24,25 +24,28 @@ class SearchController extends Controller
         $by_id = strip_tags($request->get('id'));
         $by_date = strip_tags($request->get('qdate'));
         $last_result = strip_tags($request->get('get_last_result'));
-        
 
         if ($last_result) {
             $saved_ids = Session::get('last_oligos_query');
             $recs = Oligos::whereIn('id', $saved_ids)->get();
-            return view('searchResult', [
-                'results' => $recs,
-                'view_type' => 'oligos'
-            ]);
+            if ($recs) {
+                return view('searchResult', [
+                    'results' => $recs,
+                    'view_type' => 'oligos'
+                ]);
+            }
         }
 
         if ($by_id) {
             $rec = Oligos::where('id', $by_id)->first();
-            session(['last_oligos_query' => [$rec->id]]);
-            return view('searchResult', [
-                'results' => [ $rec ],
-                'view_type' => 'oligos'
-            ]);
-        }        
+            if ($rec) {
+                session(['last_oligos_query' => [$rec->id]]);
+                return view('searchResult', [
+                    'results' => [ $rec ],
+                    'view_type' => 'oligos'
+                ]);
+            }
+        }
         $oligos = DB::table('oligos')
             ->Where('oname', 'LIKE', '%' . $query . '%')
             ->orWhere('designedby', 'LIKE', '%' . $query . '%')
@@ -75,22 +78,24 @@ class SearchController extends Controller
         if ($last_result) {
             $saved_ids = Session::get('last_plasmids_query');
             $recs = Plasmids::whereIn('id', $saved_ids)->get();
-            return view('searchResult', [
-                'results' => $recs,
-                'view_type' => 'plasmids'
-            ]);
+            if ($recs) {
+                return view('searchResult', [
+                    'results' => $recs,
+                    'view_type' => 'plasmids'
+                ]);
+            }
         }
 
         if ($by_id) {
             $rec = Plasmids::where('id', $by_id)->first();
-            session(['last_plasmids_query' => [$rec->id]]);
-            return view('searchResult', [
-                'results' => [ $rec ],
-                'view_type' => 'plasmids'
-            ]);
+            if ($rec) {
+                session(['last_plasmids_query' => [$rec->id]]);
+                return view('searchResult', [
+                    'results' => [ $rec ],
+                    'view_type' => 'plasmids'
+                ]);
+            }
         }
-
-
 
         $plasmids = DB::table('plasmids')
             ->where('pdname', 'LIKE', '%' . $query . '%')
@@ -125,19 +130,22 @@ class SearchController extends Controller
         if ($last_result) {
             $saved_ids = Session::get('last_strains_query');
             $recs = Strains::whereIn('id', $saved_ids)->get();
-            session(['last_strains_query' => [$recs->id]]);
-            return view('searchResult', [
-                'results' => [ $rec ],
-                'view_type' => 'strains'
-            ]);
+            if ($recs) {
+                return view('searchResult', [
+                    'results' => $rec,
+                    'view_type' => 'strains'
+                ]);
+            }
         }
         if ($by_id) {
             $rec = Strains::where('id', $by_id)->first();
-            session(['last_strains_query' => [$rec->id]]);
-            return view('searchResult', [
-                'results' => [ $rec ],
-                'view_type' => 'strains'
-            ]);
+            if ($rec) {
+                session(['last_strains_query' => [$rec->id]]);
+                return view('searchResult', [
+                    'results' => [ $rec ],
+                    'view_type' => 'strains'
+                ]);
+            }
         }
         $strains = DB::table('strains')
             ->where('strainname', 'LIKE', '%' . $query . '%')
@@ -157,7 +165,7 @@ class SearchController extends Controller
         foreach($strains as $strain) {
             $holder[] = $strain->id;
         }
-        session(['last_oligos_query' => $holder]);
+        session(['last_strains_query' => $holder]);
 
 		return view('searchResult', [
             'results' => $strains,
@@ -174,21 +182,23 @@ class SearchController extends Controller
         if ($last_result) {
             $saved_ids = Session::get('last_nystrains_query');
             $recs = Nonyeaststrains::whereIn('id', $saved_ids)->get();
-            session(['last_nystrains_query' => [$recs->id]]);
-            return view('searchResult', [
-                'results' => [ $rec ],
-                'view_type' => 'nystrains'
-            ]);
+            if ($recs) {
+                return view('searchResult', [
+                    'results' => $recs,
+                    'view_type' => 'nystrains'
+                ]);
+            }
         }
+
         if ($by_id) {
             $rec = Nonyeaststrains::where('id', $by_id)->first();
-            session(['last_nystrains_query' => [$rec->id]]);
-            return view('searchResult', [
-                'results' => [ $rec ],
-                'view_type' => 'nystrains'
-            ]);
-            $query = Session::get('last_nystrains_query');
-            session(['last_nystrains_query' => $query]);
+            if ($rec) {
+                session(['last_nystrains_query' => [$rec->id]]);
+                return view('searchResult', [
+                    'results' => [ $rec ],
+                    'view_type' => 'nystrains'
+                ]);
+            }
         }
         $nystrains = DB::table('nonyeaststrains')
             ->where('nystraintype', 'LIKE', '%' . $query . '%')
@@ -206,7 +216,7 @@ class SearchController extends Controller
         foreach($nystrains as $nystrain) {
             $holder[] = $nystrain->id;
         }
-        session(['last_nystrain_query' => $holder]);
+        session(['last_nystrains_query' => $holder]);
 
 		return view('searchResult', [
             'results' => $nystrains,

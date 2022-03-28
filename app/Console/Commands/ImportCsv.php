@@ -7,6 +7,7 @@ use App\Models\Oligos;
 use App\Models\Plasmids;
 use App\Models\Strains;
 use App\Models\Nonyeaststrains;
+use Illuminate\Support\Facades\Storage;
 
 class ImportCsv extends Command
 {
@@ -41,8 +42,31 @@ class ImportCsv extends Command
      */
     public function handle()
     {
-
+        $dnafile_importpath      = 'storage/import_files/dna_files/';
+        $imagefile_importpath      = 'storage/import_files/image_files/';
+        $dnafile_exportpath      = 'plasmid_files/';
+        $imagefile_exportpath      = 'plasmid_images/';
+        
         if (($handle = fopen('./storage/import_files/' . $this->argument('fileName'), "r")) !== FALSE) {
+            switch ($this->argument('strain_type')) {
+            case 'oligos':
+                break;
+
+            case 'plasmids':
+                Plasmids::truncate();
+                $test_var = Storage::deleteDirectory($dnafile_exportpath);
+                Storage::deleteDirectory($imagefile_exportpath);
+                Storage::makeDirectory($dnafile_exportpath);
+                Storage::makeDirectory($imagefile_exportpath);
+                break;
+
+            case 'strains':
+                break;
+
+            case 'nystrains':
+                break;
+
+            }
             while (($data = fgetcsv($handle, 10000, ",")) !== FALSE) {
                 $num = count($data);
                 switch ($this->argument('strain_type')) {
@@ -122,6 +146,20 @@ class ImportCsv extends Command
                             break;
                         case 7:
                             $to_create->id = preg_replace("/^P/","", $data[$c]);
+                            $substring = $data[$c];
+
+                            list($name) = glob(sprintf("$dnafile_importpath(%s)*", $substring), GLOB_NOSORT) + array(NULL);
+                            if ($name) {
+                                Storage::put($dnafile_exportpath . basename($name), file_get_contents($name));
+                                $to_create->dna_filepath = $dnafile_exportpath . basename($name);
+                                $to_create->dna_filename = basename($name);
+                            }
+                            list($name) = glob(sprintf("$imagefile_importpath(%s)*", $substring), GLOB_NOSORT) + array(NULL);
+                            if ($name) {
+                                Storage::put($imagefile_exportpath . basename($name), file_get_contents($name));
+                                $to_create->img_filepath = $imagefile_exportpath . basename($name);
+                                $to_create->img_filename = basename($name);
+                            }
                             break;
                         case 8:
                             $to_create->plasmidsize = $data[$c];

@@ -23,7 +23,7 @@
                                             <input id="search-bar" type="text" class="form-control" name="query"
                                             placeholder="Search Text"><br>
 
-                                            <input type="text" class="form-control" name="qdate"
+                                            <input type="date" class="form-control" name="qdate"
                                             placeholder="Search Date"><br>
 
                                             <br>

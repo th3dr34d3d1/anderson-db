@@ -35,10 +35,16 @@ class ProfileController extends Controller
             'view_type' => 'plasmids'
         ]);
     }
-    public function download($id)
+    public function download_dnafile($id)
     {
         $rec = Plasmids::where('id', $id)->first();
         return Storage::download($rec->dna_filepath, $rec->dna_filename);
+
+    }
+    public function download_imagefile($id)
+    {
+        $rec = Plasmids::where('id', $id)->first();
+        return Storage::download($rec->img_filepath, $rec->img_filename);
 
     }
 

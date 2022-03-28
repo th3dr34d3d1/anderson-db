@@ -97,6 +97,17 @@ class SearchController extends Controller
             }
         }
 
+        if ($by_date) {
+            $rec = Plasmids::whereDate('pdatemade', $by_date)->get();
+            if ($rec) {
+                session(['last_plasmids_query' => [$rec->id]]);
+                return view('searchResult', [
+                    'results' => [ $rec ],
+                    'view_type' => 'plasmids'
+                ]);
+            }
+        }
+
         $plasmids = DB::table('plasmids')
             ->where('pdname', 'LIKE', '%' . $query . '%')
             ->orWhere('penteredby', 'LIKE', '%' . $query . '%')
@@ -132,7 +143,7 @@ class SearchController extends Controller
             $recs = Strains::whereIn('id', $saved_ids)->get();
             if ($recs) {
                 return view('searchResult', [
-                    'results' => $rec,
+                    'results' => $recs,
                     'view_type' => 'strains'
                 ]);
             }

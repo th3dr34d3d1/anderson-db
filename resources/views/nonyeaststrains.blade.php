@@ -37,7 +37,7 @@
                                 <div class="flex items-center">
                                     <div class="ml-4 text-lg leading-7 font-semibold">
                                         <div class="input-group">
-                                            <input type="text" class="form-control" name="qdate"
+                                            <input type="date" class="form-control" name="qdate"
                                             placeholder="Search Date">
                                         </div>
                                     </div>

@@ -90,63 +90,13 @@
                                                 @case ('plasmids')
                                                     <div class="grid grid-cols-1 md:grid-cols-1">
                                                         @if ($is_edit)
-                                                            <form id='plasmids-edit-form' action="/save/plasmids/{{ $record->id }}" method="POST" role="search" enctype="multipart/form-data">
-                                                                @csrf
-                                                                <div>
-                                                                    Plasmid Name:
-                                                                    <input value="{{ $record->plasmidname }}" id='plasmidname' type="text" class="form-control" name="plasmidname"><br>
-                                                                </div>
-                                                                <div>
-                                                                    Detailed Name:
-                                                                    <input value="{{ $record->pdname }}" id='pdname' type="text" class="form-control" name="pdname"><br>
-                                                                </div>
-                                                                <div>
-                                                                    Entered By:
-                                                                    <input value="{{ $record->penteredby }}" id='penteredby' type="text" class="form-control" name="penteredby"><br>
-                                                                </div>
-                                                                <div>
-                                                                    Date Made:
-                                                                    <input value="{{ $record->pdatemade }}" id='pdatemade' type="date" class="form-control" name="pdatemade"><br>
-                                                                </div>
-                                                                <div>
-                                                                    Sequence:
-                                                                    <input value="{{ $record->psequence }}" id='psequence' type="text" class="form-control" name="psequence"><br>
-                                                                </div>
-                                                                <div>
-                                                                    Function/Usage:
-                                                                    <input value="{{ $record->pusage }}" id='pusage' type="text" class="form-control" name="pusage"><br>
-                                                                </div>
-                                                                <div>
-                                                                    Source:
-                                                                    <input value="{{ $record->psource }}" id='psource' type="text" class="form-control" name="psource"><br>
-                                                                </div>
-                                                                <div>
-                                                                    Concentration:
-                                                                    <input value="{{ $record->pconcentration }}" id='pconcentration' type="text" class="form-control" name="pconcentration"><br>
-                                                                </div>
-                                                                <div>
-                                                                    Markers:
-                                                                    <input value="{{ $record->pmarkers }}" id='pmarkers' type="text" class="form-control" name="pmarkers"><br>
-                                                                </div>
-                                                                <div>
-                                                                    Plasmid Size:
-                                                                    <input value="{{ $record->plasmidsize }}" id='plasmidsize' type="text" class="form-control" name="plasmidsize"><br>
-                                                                </div>
-                                                                <div>
-                                                                    Plasmid File:
-                                                                    <input id='plasmidfile' type="file" class="form-control" name="plasmidfile"><br>
-                                                                </div>
-                                                                <div>
-                                                                    Plasmid Image:
-                                                                    <input id='plasmidimage' type="file" class="form-control" name="plasmidimage"><br>
-                                                                </div>
-
-                                                                <div>
-                                                                    Comments:
-                                                                    <textarea id='pcomments' type="text" class="form-control" name="pcomments">{{ $record->pcomments }}</textarea><br>
-                                                                </div>
-
-                                                            </form>
+                                                            @include(
+                                                            'dynamic_profile',
+                                                                [
+                                                                    'view_type' => $view_type,
+                                                                    'record' => $record
+                                                                ]
+                                                            )
                                                         @else
                                                             @include(
                                                             'static_profile',
@@ -308,15 +258,7 @@
                                         </form>
                                     @endif
                                     </div>
-                                    <br>
-                                    
-                                    @if ($is_edit)
-                                        <div>
-                                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" form="{{ $view_type . '-edit-form' }}" type='submit'>Save</button>
-                                        </div>
-                                    @endif
-                                    
-                                    <br> 
+
                                     <div>
                                         <form action="{{'/search/' . $view_type }}" method="GET" role="search">
                                             <input type='hidden' name='get_last_result' value=1>

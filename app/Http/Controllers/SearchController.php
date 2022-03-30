@@ -44,8 +44,28 @@ class SearchController extends Controller
                     'results' => [ $rec ],
                     'view_type' => 'oligos'
                 ]);
+            } else { 
+                session(['last_oligos_query' => []]);
+                return view('searchResult', [
+                    'results' => [],
+                    'view_type' => 'oligos'
+                ]);
             }
         }
+
+        if ($by_date) {
+            $recs = Oligos::whereDate('datemade', $by_date)->get();
+            $holder = [];
+            foreach($recs as $oligo) {
+                $holder[] = $oligo->id;
+            }
+            session(['last_oligos_query' => $holder]);
+            return view('searchResult', [
+                'results' => (!$recs->isEmpty()) ? $recs : [],
+                'view_type' => 'oligos'
+            ]);
+        }
+
         $oligos = DB::table('oligos')
             ->Where('oname', 'LIKE', '%' . $query . '%')
             ->orWhere('designedby', 'LIKE', '%' . $query . '%')
@@ -63,7 +83,7 @@ class SearchController extends Controller
         session(['last_oligos_query' => $holder]);
 
 		return view('searchResult', [
-            'results' => $oligos,
+            'results' => (!$oligos->isEmpty()) ? $oligos : [],
             'view_type' => 'oligos'
         ]);
     }
@@ -94,18 +114,26 @@ class SearchController extends Controller
                     'results' => [ $rec ],
                     'view_type' => 'plasmids'
                 ]);
+            } else { 
+                session(['last_plasmids_query' => []]);
+                return view('searchResult', [
+                    'results' => [],
+                    'view_type' => 'plasmids'
+                ]);
             }
         }
 
         if ($by_date) {
-            $rec = Plasmids::whereDate('pdatemade', $by_date)->get();
-            if ($rec) {
-                session(['last_plasmids_query' => [$rec->id]]);
-                return view('searchResult', [
-                    'results' => [ $rec ],
-                    'view_type' => 'plasmids'
-                ]);
+            $recs = Plasmids::whereDate('pdatemade', $by_date)->get();
+            $holder = [];
+            foreach($recs as $plasmid) {
+                $holder[] = $plasmid->id;
             }
+            session(['last_plasmids_query' => $holder]);
+            return view('searchResult', [
+                'results' => (!$recs->isEmpty()) ? $recs : [],
+                'view_type' => 'plasmids'
+            ]);
         }
 
         $plasmids = DB::table('plasmids')
@@ -126,7 +154,7 @@ class SearchController extends Controller
         session(['last_plasmids_query' => $holder]);
 
 		return view('searchResult', [
-            'results' => $plasmids,
+            'results' => (!$plasmids->isEmpty()) ? $plasmids : [],
             'view_type' => 'plasmids'
         ]);
 	}
@@ -136,6 +164,7 @@ class SearchController extends Controller
 	{
         $query = strip_tags($request->get('query'));
         $by_id = strip_tags($request->get('id'));
+        $by_date = strip_tags($request->get('qdate'));
         $last_result = strip_tags($request->get('get_last_result'));
 
         if ($last_result) {
@@ -156,8 +185,28 @@ class SearchController extends Controller
                     'results' => [ $rec ],
                     'view_type' => 'strains'
                 ]);
+            } else { 
+                session(['last_strains_query' => []]);
+                return view('searchResult', [
+                    'results' => [],
+                    'view_type' => 'strains'
+                ]);
             }
+
         }
+        if ($by_date) {
+            $recs = Strains::whereDate('sdateentered', $by_date)->get();
+            $holder = [];
+            foreach($recs as $strain) {
+                $holder[] = $strain->id;
+            }
+            session(['last_strains_query' => $holder]);
+            return view('searchResult', [
+                'results' => (!$recs->isEmpty()) ? $recs : [],
+                'view_type' => 'strains'
+            ]);
+        }
+
         $strains = DB::table('strains')
             ->where('strainname', 'LIKE', '%' . $query . '%')
             ->orWhere('sspecies', 'LIKE', '%' . $query . '%')
@@ -179,7 +228,7 @@ class SearchController extends Controller
         session(['last_strains_query' => $holder]);
 
 		return view('searchResult', [
-            'results' => $strains,
+            'results' => (!$strains->isEmpty()) ? $strains : [],
             'view_type' => 'strains'
         ]);
 	}
@@ -188,6 +237,7 @@ class SearchController extends Controller
 	{
         $query = strip_tags($request->get('query'));
         $by_id = strip_tags($request->get('id'));
+        $by_date = strip_tags($request->get('qdate'));
         $last_result = strip_tags($request->get('get_last_result'));
 
         if ($last_result) {
@@ -209,7 +259,27 @@ class SearchController extends Controller
                     'results' => [ $rec ],
                     'view_type' => 'nystrains'
                 ]);
+            } else { 
+                session(['last_nystrains_query' => []]);
+                return view('searchResult', [
+                    'results' => [],
+                    'view_type' => 'nystrains'
+                ]);
             }
+
+        }
+
+        if ($by_date) {
+            $recs = Nonyeaststrains::whereDate('nydate', $by_date)->get();
+            $holder = [];
+            foreach($recs as $nystrain) {
+                $holder[] = $nystrain->id;
+            }
+            session(['last_nystrains_query' => $holder]);
+            return view('searchResult', [
+                'results' => (!$recs->isEmpty()) ? $recs : [],
+                'view_type' => 'nystrains'
+            ]);
         }
         $nystrains = DB::table('nonyeaststrains')
             ->where('nystraintype', 'LIKE', '%' . $query . '%')
@@ -230,7 +300,7 @@ class SearchController extends Controller
         session(['last_nystrains_query' => $holder]);
 
 		return view('searchResult', [
-            'results' => $nystrains,
+            'results' => (!$nystrains->isEmpty()) ? $nystrains : [],
             'view_type' => 'nystrains'
         ]);
 	}

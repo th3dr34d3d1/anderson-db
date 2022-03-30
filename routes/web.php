@@ -31,7 +31,7 @@ Route::get('/search/nystrains', [SearchController::class, 'nonyeaststrains'])->m
 Route::get('/profile/oligos/{id}', [ProfileController::class, 'oligos'])->middleware(['auth'])->name('profile_oligos');
 Route::get('/profile/plasmids/{id}', [ProfileController::class, 'plasmids'])->middleware(['auth'])->name('profile_plasmids');
 Route::get('/profile/strains/{id}', [ProfileController::class, 'strains'])->middleware(['auth'])->name('profile_strains');
-Route::get('/profile/nonyeaststrains/{id}', [ProfileController::class, 'nystrains'])->middleware(['auth'])->name('profile_nystrains');
+Route::get('/profile/nystrains/{id}', [ProfileController::class, 'nystrains'])->middleware(['auth'])->name('profile_nystrains');
 
 Route::get('/edit/oligos/{id}', [EditController::class, 'oligos'])->middleware(['auth'])->name('edit_oligos');
 Route::get('/edit/plasmids/{id}', [EditController::class, 'plasmids'])->middleware(['auth'])->name('edit_plasmids');
@@ -41,12 +41,12 @@ Route::get('/edit/nystrains/{id}', [EditController::class, 'nystrains'])->middle
 Route::post('/save/oligos/{id}', [CreateController::class, 'oligos'])->middleware(['auth'])->name('save_oligos');
 Route::post('/save/plasmids/{id}', [CreateController::class, 'plasmids'])->middleware(['auth'])->name('save_plasmids');
 Route::post('/save/strains/{id}', [CreateController::class, 'strains'])->middleware(['auth'])->name('save_strains');
-Route::post('/save/nonyeaststrains/{id}', [CreateController::class, 'nonyeaststrains'])->middleware(['auth'])->name('save_nystrains');
+Route::post('/save/nystrains/{id}', [CreateController::class, 'nonyeaststrains'])->middleware(['auth'])->name('save_nystrains');
 
 Route::post('/create/oligos', [CreateController::class, 'oligos'])->middleware(['auth'])->name('oligos_create');
 Route::post('/create/plasmids', [CreateController::class, 'plasmids'])->middleware(['auth'])->name('plasmids_create');
 Route::post('/create/strains', [CreateController::class, 'strains'])->middleware(['auth'])->name('strains_create');
-Route::post('/create/nonyeaststrains', [CreateController::class, 'nonyeaststrains'])->middleware(['auth'])->name('nonyeaststrains_create');
+Route::post('/create/nystrains', [CreateController::class, 'nonyeaststrains'])->middleware(['auth'])->name('nonyeaststrains_create');
 
 
 Route::get('/download/plasmidfile/{id}', [ProfileController::class, 'download_dnafile'])->middleware(['auth'])->name('download_plasmidfile');

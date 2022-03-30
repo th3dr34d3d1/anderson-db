@@ -5,43 +5,30 @@
                 <div class='p-6'>
                     Oligos-ID: {{ $record->id }}
                 </div>
-
-                @if ($show_view_profile_link)
-                    <a class='m-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded p-2' href={{ url('/profile/oligos/' . $record->id) }}>View Profile</a>
-                    <a class='m-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded p-2' href={{ url('/edit/oligos/' . $record->id) }}>Edit</a>
-                @endif
             @break
 
             @case ('plasmids')
                 <div class='p-6'>
                     Plasmid-ID: {{ $record->id }}
                 </div>
-                @if ($show_view_profile_link)
-                    <a class='m-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded p-2' href={{ url('/profile/plasmids/' . $record->id) }}>View Profile</a>
-                    <a class='m-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded p-2' href={{ url('/edit/plasmids/' . $record->id) }}>Edit</a>
-                @endif
             @break
 
             @case ('strains')
                 <div class='p-6'>
                     Strains-ID: {{ $record->id }}
                 </div>
-                @if ($show_view_profile_link)
-                    <a class='m-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded p-2' href={{ url('/profile/strains/' . $record->id) }}>View Profile</a>
-                    <a class='m-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded p-2' href={{ url('/edit/strains/' . $record->id) }}>Edit</a>
-                @endif
             @break
 
             @case ('nystrains')
                 <div class='p-6'>
                     NyStrains-ID: {{ $record->id }}
                 </div>
-                @if ($show_view_profile_link)
-                    <a class='m-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded p-2' href={{ url('/profile/nonyeaststrains/' . $record->id) }}>View Profile</a>
-                    <a class='m-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded p-2' href={{ url('/edit/nonyeaststrains/' . $record->id) }}>Edit</a>
-                @endif
             @break
         @endswitch
+        @if ($show_view_profile_link)
+            <a class='m-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded p-2' href={{ url('/profile/' . $view_type . '/' . $record->id) }}>View Profile</a>
+            <a class='m-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded p-2' href={{ url('/edit/' . $view_type . '/' . $record->id) }}>Edit</a>
+        @endif
     </h2>
 
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -79,12 +66,12 @@
                                 <span class='text-base'>{{ $record->datemade }}</span>
                             </div>
                             <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col col-span-3">
-                                Description:
-                                <textarea readonly class='text-base'>{{ $record->odescription }}</textarea>
-                            </div>
-                            <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col col-span-3">
                                 Sequence:
                                 <textarea readonly class='text-base'>{{ $record->sequence }}</textarea>
+                            </div>
+                            <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col col-span-3">
+                                Description:
+                                <textarea readonly class='text-base'>{{ $record->odescription }}</textarea>
                             </div>
                         </div>
 
@@ -137,11 +124,12 @@
                                 Comments:
                                 <textarea readonly class='text-base'>{{ $record->pcomments }}</textarea>
                             </div>
-
-                            <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col">
-                                Plasmid File:
-                                <a href={{ url('/download/plasmid/' .$record->id) }}> <span class='text-base'>{{ $record->dna_filename }}</span></a>
-                            </div>
+                            @if ($record->dna_filepath)
+                                <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col">
+                                    Plasmid File:
+                                    <a href={{ url('/download/plasmidfile/' .$record->id) }}> <span class='text-base'>{{ $record->dna_filename }}</span></a>
+                                </div>
+                            @endif
                             @if ($record->img_filepath)
                                 <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col">
                                     Plasmid Image:
@@ -156,107 +144,107 @@
                     @break
 
                     @case ('strains')
-                        <div class="grid grid-cols-1 md:grid-cols-1">
-                            <div>
+                        <div class="grid grid-cols-1 md:grid-cols-3">
+                            <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col">
                                 Strain Number:
                                 <span class='text-base'>{{ $record->id }}</span>
                             </div>
-                            <div>
+                            <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col">
                                 Strain Name:
                                 <span class='text-base'>{{ $record->strainname }}</span>
                             </div>
-                            <div>
+                            <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col">
                                 Date:
-                                <span clss='text-base'>{{ $record->sdateentered }}</span>
+                                <span class='text-base'>{{ $record->sdateentered }}</span>
                             </div>
-                            <div>
+                            <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col">
                                 Entered By:
                                 <span class='text-base'>{{ $record->senteredby }}</span>
                             </div>
-                            <div>
+                            <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col">
                                 Species:
                                 <span class='text-base'>{{ $record->sspecies }}</span>
                             </div>
-                            <div>
+                            <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col">
                                 MAT:
                                 <span class='text-base'>{{ $record->smat }}</span>
                             </div>
-                            <div>
+                            <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col">
                                 Background:
                                 <span class='text-base'>{{ $record->sbkgnd }}</span>
                             </div>
-                            <div>
+                            <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col">
                                 Reports & Markers:
                                 <span class='text-base'>{{ $record->srepandmarkers }}</span>
                             </div>
-                            <div>
+                            <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col">
                                 Used Often:
                                 <span class='text-base'>{{ $record->susedoften }}</span>
                             </div>
-                            <div>
+                            <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col">
                                 Auxotrophies:
                                 <span class='text-base'>{{ $record->sauxotrophies }}</span>
                             </div>
-                            <div>
+                            <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col">
                                 Cross/Transformation:
                                 <span class='text-base'>{{ $record->sxtransform }}</span>
                             </div>
-                            <div>
+                            <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col">
                                 Source:
                                 <span class='text-base'>{{ $record->ssource }}</span>
                             </div>
-                            <div class='row-span-3'>
+                            <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col col-span-3">
                                 Comments:
-                                <span class='text-base'>{{ $record->scomments }}</span>
+                                <textarea readonly class='text-base'>{{ $record->scomments }}</textarea>
                             </div>
                         </div>
                     @break
 
                     @case ('nystrains')
-                        <div class="grid grid-cols-1 md:grid-cols-1">
-                            <div>
+                        <div class="grid grid-cols-1 md:grid-cols-3">
+                            <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col">
                                 Strain Number:
                                 <span class='text-base'>{{ $record->id }}</span>
                             </div>
-                            <div>
+                            <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col">
                                 Strain Type:
                                 <span class='text-base'>{{ $record->nystraintype }}</span>
                             </div>
-                            <div>
+                            <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col">
                                 Strain Name:
                                 <span class='text-base'>{{ $record->nystrainname }}</span>
                             </div>
-                            <div>
+                            <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col">
                                 Date:
                                 <span class='text-base'>{{ $record->nydate }}</span>
                             </div>
-                            <div>
+                            <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col">
                                 Entered By:
                                 <span class='text-base'>{{ $record->nyenteredby }}</span>
                             </div>
-                            <div>
+                            <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col">
                                 Genus:
                                 <span class='text-base'>{{ $record->nygenus }}</span>
                             </div>
-                            <div>
+                            <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col">
                                 Species:
                                 <span class='text-base'>{{ $record->nyspecies }}</span>
                             </div>
-                            <div>
+                            <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col">
                                 Source:
                                 <span class='text-base'>{{ $record->nysource }}</span>
                             </div>
-                            <div>
+                            <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col">
                                 Medium of Isolation:
                                 <span class='text-base'>{{ $record->nymedofisolation }}</span>
                             </div>
-                            <div>
+                            <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col">
                                 Medium for Growth:
                                 <span class='text-base'>{{ $record->nymedforgrowth }}</span>
                             </div>
-                            <div>
+                            <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col col-span-3">
                                 Comments:
-                                <span class='text-base'>{{ $record->nycomments }}</span>
+                                <textarea readonly class='text-base'>{{ $record->nycomments }}</textarea>
                             </div>
                         </div>
                     @break

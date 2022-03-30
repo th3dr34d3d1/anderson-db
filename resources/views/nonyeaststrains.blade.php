@@ -55,63 +55,15 @@
                 @endif
 
                 <div class="ml-4 text-lg leading-7 font-semibold p-4">
-                    <h1>Create a New Plasmid...</h1>
+                    <h1>Create a New Non-Yeast Strain...</h1>
+                    @include(
+                    'dynamic_profile',
+                        [
+                            'view_type' => 'nystrains',
+                            'record' => false
+                        ]
+                    )
                 </div>
-                <form action="/create/nonyeaststrains" method="POST" role="search">
-                    @csrf
-                    <div class="grid grid-cols-1 md:grid-cols-3">
-                        <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col">
-                            <label for='nystraintype'>Non-Yeast Strain Type</label>
-                            <input id='nystraintype' type="text" class="form-control" name="nystraintype">
-                        </div>
-
-                        <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col">
-                            <label for='nyname'>Non-Yeast Strain Name</label>
-                            <input id='nyname' type="text" class="form-control" name="nystrainname">
-                        </div>
-
-                        <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col">
-                            <label for='nydate'>Date Made</label>
-                            <input id='nydate' type="date" class="form-control" name="nydate">
-                        </div>
-
-                        <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col">
-                            <label for='nyenteredby'>Entered By</label>
-                            <input id='nyenteredby' type="text" class="form-control" name="nyenteredby">
-                        </div>
-
-                        <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col">
-                            <label for='nygenus'>Genus</label>
-                            <input id= 'nygenus' type="text" class="form-control" name="nygenus">
-                        </div>
-
-                        <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col">
-                            <label for='nyspecies'>Species</label>
-                            <input id='nyspecies' type="text" class="form-control" name="nyspecies">
-                        </div>
-
-                        <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col">
-                            <label for='nysource'>Source</label>
-                            <input id='nysource' type="text" class="form-control" name="nysource">
-                        </div>
-
-                        <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col">
-                            <label for='nymedofisolation'>Medium of Isolation</label>
-                            <input id='nymedofisolation' type="text" class="form-control" name="nymedofisolation">
-                        </div>
-
-                        <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col">
-                            <label for='nymedforgrowth'>Medium for Growth</label>
-                            <input id='nymedforgrowth' type="text" class="form-control" name="nymedforgrowth">
-                        </div>
-
-                        <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col col-span-3">
-                            <label for='nycomments'>Comments</label>
-                            <textarea id='nycomments' name="nycomments"></textarea>
-                        </div>
-                    </div>
-                    <button class="mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" type='submit'>Create Non-Yeast Strain</button>
-                </form>
             </div>
         </div>
     </div>

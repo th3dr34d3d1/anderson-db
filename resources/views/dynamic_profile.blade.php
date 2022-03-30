@@ -46,32 +46,32 @@
                                         @endif
 
                                         <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col">
-                                            <label for='oligoname-input'>Oligo Name</label>
+                                            <label for='oligoname-input'>Oligo Name<span class= 'text-red-600'>*</span></label>
                                             <input value="{{ ($record) ? $record->oname : null }}" id='oligoname-input' type="text" class="form-control" name="oname"><br>
                                         </div>
                                        
                                         <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col">
-                                            <label for='odatemade'>Date Made</label>
+                                            <label for='odatemade'>Date Made<span class= 'text-red-600'>*</span></label>
                                             <input value="{{ ($record) ? $record->datemade : null }}" id='odatemade' type="date" class="form-control" name="datemade"><br>
                                         </div>
 
                                         <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col">
-                                            <label for='hybridtm'>HybridTm</label>
+                                            <label for='hybridtm'>HybridTm<span class= 'text-red-600'>*</span></label>
                                             <input value="{{ ($record) ? $record->hybridtm : null }}" id='hybridtm' type="text" class="form-control" name="hybridtm"><br>
                                         </div>
 
                                         <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col">
-                                            <label for='lengthbases'>Length Bases</label>
+                                            <label for='lengthbases'>Length Bases<span class= 'text-red-600'>*</span></label>
                                             <input value="{{ ($record) ? $record->lengthbases : null }}" id='lengthbases' type="text" class="form-control" name="lengthbases"><br>
                                         </div>
 
                                         <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col">
-                                            <label for='omadeby'>Made By</label>
+                                            <label for='omadeby'>Made By<span class= 'text-red-600'>*</span></label>
                                             <input value="{{ ($record) ? $record->madeby : null }}" id='omadeby' type="text" class="form-control" name="madeby"><br>
                                         </div>
 
                                         <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col">
-                                            <label for='odesignedby'>Designed By</label>
+                                            <label for='odesignedby'>Designed By<span class= 'text-red-600'>*</span></label>
                                             <input value="{{ ($record) ? $record->designedby : null }}" id='odesignedby' type="text" class="form-control" name="designedby"><br>
                                         </div>
 
@@ -103,42 +103,42 @@
                                         @endif
 
                                         <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col">
-                                            <label for='pdname'>Detailed Name</label>
+                                            <label for='pdname'>Detailed Name<span class= 'text-red-600'>*</span></label>
                                             <input value="{{ ($record) ? $record->pdname : null }}" id='pdname' type="text" class="form-control" name="pdname"><br>
                                         </div>
 
                                         <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col">
-                                            <label for='pdatemade'>Date Made</label>
+                                            <label for='pdatemade'>Date Made<span class= 'text-red-600'>*</span></label>
                                             <input value="{{ ($record) ? $record->pdatemade : null }}" id='pdatemade' type="date" class="form-control" name="pdatemade"><br>
                                         </div>
 
                                         <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col">
-                                            <label for='penteredby'>Entered By</label>
+                                            <label for='penteredby'>Entered By<span class= 'text-red-600'>*</span></label>
                                             <input value="{{ ($record) ? $record->penteredby : null }}" id='penteredby' type="text" class="form-control" name="penteredby"><br>
                                         </div>
 
                                         <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col">
-                                            <label for='pusage'>Function/Usage</label>
+                                            <label for='pusage'>Function/Usage<span class= 'text-red-600'>*</span></label>
                                             <input value="{{ ($record) ? $record->pusage : null }}" id='pusage' type="text" class="form-control" name="pusage"><br>
                                         </div>
 
                                         <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col">
-                                            <label for='psource'>Source</label>
+                                            <label for='psource'>Source<span class= 'text-red-600'>*</span></label>
                                             <input value="{{ ($record) ? $record->psource : null }}" id='psource' type="text" class="form-control" name="psource"><br>
                                         </div>
 
                                         <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col">
-                                            <label for='pconcentration'>Concentration</label>
+                                            <label for='pconcentration'>Concentration<span class= 'text-red-600'>*</span></label>
                                             <input value="{{ ($record) ? $record->pconcentration : null }}" id='pconcentration' type="text" class="form-control" name="pconcentration"><br>
                                         </div>
 
                                         <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col">
-                                            <label for='pmarkers'>Markers</label>
+                                            <label for='pmarkers'>Markers<span class= 'text-red-600'>*</span></label>
                                             <input value="{{ ($record) ? $record->pmarkers : null }}" id='pmarkers' type="text" class="form-control" name="pmarkers"><br>
                                         </div>
 
                                         <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col">
-                                            <label for='plasmidsize'>Plasmid Size</label>
+                                            <label for='plasmidsize'>Plasmid Size<span class= 'text-red-600'>*</span></label>
                                             <input value="{{ ($record) ? $record->plasmidsize : null }}" id='plasmidsize' type="text" class="form-control" name="plasmidsize"><br>
                                         </div>
 
@@ -178,47 +178,47 @@
                                         @endif
 
                                         <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col col-span">
-                                            <label for='strain'>Strain Name</label>
+                                            <label for='strain'>Strain Name<span class= 'text-red-600'>*</span></label>
                                             <input value="{{ ($record) ? $record->strainname : null }}" id='strain' type="text" class="form-control" name="strainname"><br>
                                         </div>
 
                                         <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col col-span">
-                                            <label for='straindate'>Date Made</label>
+                                            <label for='straindate'>Date Made<span class= 'text-red-600'>*</span></label>
                                             <input value="{{ ($record) ? $record->sdate : null }}" id='straindate' type="date" class="form-control" name="sdate"><br>
                                         </div>
 
                                         <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col col-span">
-                                            <label for='species'>Species</label>
+                                            <label for='species'>Species<span class= 'text-red-600'>*</span></label>
                                             <input value="{{ ($record) ? $record->sspecies : null }}" id='species' type="text" class="form-control" name="sspecies"><br>
                                         </div>
 
                                         <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col col-span">
-                                            <label for='mat'>MAT</label>
+                                            <label for='mat'>MAT<span class= 'text-red-600'>*</span></label>
                                             <input value="{{ ($record) ? $record->smat : null }}" id= 'mat' type="text" class="form-control" name="smat"><br>
                                         </div>
 
                                         <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col col-span">
-                                            <label for='senteredby'>Entered By</label>
+                                            <label for='senteredby'>Entered By<span class= 'text-red-600'>*</span></label>
                                             <input value="{{ ($record) ? $record->senteredby : null }}" id='senteredby' type="text" class="form-control" name="senteredby"><br>
                                         </div>
 
                                         <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col col-span">
-                                            <label for='background'>Background</label>
+                                            <label for='background'>Background<span class= 'text-red-600'>*</span></label>
                                             <input value="{{ ($record) ? $record->sbkgnd : null }}" id='background' type="text" class="form-control" name="sbkgnd"><br>
                                         </div>
 
                                         <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col col-span">
-                                            <label for='srepandmark'>Reports & Markers</label>
+                                            <label for='srepandmark'>Reports & Markers<span class= 'text-red-600'>*</span></label>
                                             <input value="{{ ($record) ? $record->srepandmarkers : null }}" id='srepandmark' type="text" class="form-control" name="srepandmarkers"><br>
                                         </div>
 
                                         <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col col-span">
-                                            <label for='usedoften'>Used Often</label>
+                                            <label for='usedoften'>Used Often<span class= 'text-red-600'>*</span></label>
                                             <input value="{{ ($record) ? $record->susedoften : null }}" id='usedoften' type="text" class="form-control" name="susedoften"><br>
                                         </div>
 
                                         <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col col-span">
-                                            <label for='auxotrophies'>Auxotrophies</label>
+                                            <label for='auxotrophies'>Auxotrophies<span class= 'text-red-600'>*</span></label>
                                             <input value="{{ ($record) ? $record->sauxotrophies : null }}" id='auxotrophies' type="text" class="form-control" name="sauxotrophies"><br>
                                         </div>
 
@@ -228,7 +228,7 @@
                                         </div>
 
                                         <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col col-span">
-                                            <label for='ssource'>Source</label>
+                                            <label for='ssource'>Source<span class= 'text-red-600'>*</span></label>
                                             <input value="{{ ($record) ? $record->ssource : null }}" id='ssource' type="text" class="form-control" name="ssource"><br>
                                         </div>
 
@@ -253,47 +253,47 @@
                                            </div>
                                         @endif
                                         <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col">
-                                            <label for='nystraintype'>Non-Yeast Strain Type</label>
+                                            <label for='nystraintype'>Non-Yeast Strain Type<span class= 'text-red-600'>*</span></label>
                                             <input value="{{ ($record) ? $record->nystraintype : null }}" id='nystraintype' type="text" class="form-control" name="nystraintype">
                                         </div>
 
                                         <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col">
-                                            <label for='nyname'>Non-Yeast Strain Name</label>
+                                            <label for='nyname'>Non-Yeast Strain Name<span class= 'text-red-600'>*</span></label>
                                             <input value="{{ ($record) ? $record->nystrainname : null }}" id='nyname' type="text" class="form-control" name="nystrainname">
                                         </div>
 
                                         <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col">
-                                            <label for='nydate'>Date Made</label>
+                                            <label for='nydate'>Date Made<span class= 'text-red-600'>*</span></label>
                                             <input value="{{ ($record) ? $record->nydate : null }}" id='nydate' type="date" class="form-control" name="nydate">
                                         </div>
 
                                         <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col">
-                                            <label for='nyenteredby'>Entered By</label>
+                                            <label for='nyenteredby'>Entered By<span class= 'text-red-600'>*</span></label>
                                             <input value="{{ ($record) ? $record->nyenteredby : null }}" id='nyenteredby' type="text" class="form-control" name="nyenteredby">
                                         </div>
 
                                         <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col">
-                                            <label for='nygenus'>Genus</label>
+                                            <label for='nygenus'>Genus<span class= 'text-red-600'>*</span></label>
                                             <input value="{{ ($record) ? $record->nygenus : null }}" id= 'nygenus' type="text" class="form-control" name="nygenus">
                                         </div>
 
                                         <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col">
-                                            <label for='nyspecies'>Species</label>
+                                            <label for='nyspecies'>Species<span class= 'text-red-600'>*</span></label>
                                             <input value="{{ ($record) ? $record->nyspecies : null }}" id='nyspecies' type="text" class="form-control" name="nyspecies">
                                         </div>
 
                                         <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col">
-                                            <label for='nysource'>Source</label>
+                                            <label for='nysource'>Source<span class= 'text-red-600'>*</span></label>
                                             <input value="{{ ($record) ? $record->nysource : null }}" id='nysource' type="text" class="form-control" name="nysource">
                                         </div>
 
                                         <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col">
-                                            <label for='nymedofisolation'>Medium of Isolation</label>
+                                            <label for='nymedofisolation'>Medium of Isolation<span class= 'text-red-600'>*</span></label>
                                             <input value="{{ ($record) ? $record->nymedofisolation : null }}" id='nymedofisolation' type="text" class="form-control" name="nymedofisolation">
                                         </div>
 
                                         <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col">
-                                            <label for='nymedforgrowth'>Medium for Growth</label>
+                                            <label for='nymedforgrowth'>Medium for Growth<span class= 'text-red-600'>*</span></label>
                                             <input value="{{ ($record) ? $record->nymedforgrowth : null }}" id='nymedforgrowth' type="text" class="form-control" name="nymedforgrowth">
                                         </div>
 

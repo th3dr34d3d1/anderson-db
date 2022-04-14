@@ -3,31 +3,31 @@
         @switch ($view_type)
             @case ('oligos')
                 <div class='p-6'>
-                    Oligos-ID: {{ $record->id }}
+                    Oligo Number: {{ $record->id }}
                 </div>
             @break
 
             @case ('plasmids')
                 <div class='p-6'>
-                    Plasmid-ID: {{ $record->id }}
+                    Plasmid Name: P{{ $record->id }}
                 </div>
             @break
 
             @case ('strains')
                 <div class='p-6'>
-                    Strains-ID: {{ $record->id }}
+                    Strain Number: {{ $record->id }}
                 </div>
             @break
 
             @case ('nystrains')
                 <div class='p-6'>
-                    NyStrains-ID: {{ $record->id }}
+                    Non-Yeast Strain Number: {{ $record->id }}
                 </div>
             @break
         @endswitch
         @if ($show_view_profile_link)
-            <a class='m-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded p-2' href={{ url('/profile/' . $view_type . '/' . $record->id) }}>View Profile</a>
-            <a class='m-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded p-2' href={{ url('/edit/' . $view_type . '/' . $record->id) }}>Edit</a>
+            <a class='m-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded p-2' href={{ url('/profile/' . $view_type . '/' . $record->id) }}>View Profile</a>
+            <a class='m-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded p-2' href={{ url('/edit/' . $view_type . '/' . $record->id) }}>Edit</a>
         @endif
     </h2>
 
@@ -37,10 +37,6 @@
                 @switch ($view_type)
                     @case ('oligos')
                         <div class="grid grid-cols-1 md:grid-cols-3">
-                            <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col">
-                                Oligos Number:<br>
-                                <span class='text-base'>{{ $record->id }}</span>
-                            </div>
                             <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col">
                                 Name:<br>
                                 <span class='text-base'>{{ $record->oname }}</span>
@@ -79,10 +75,6 @@
 
                     @case ('plasmids')
                         <div class="grid grid-cols-1 md:grid-cols-3">
-                            <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col">
-                                Plasmid Name:
-                                <span class='text-base'>P{{ $record->id }}</span>
-                            </div>
                             <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col">
                                 Detailed Name:
                                 <span class='text-base'>{{ $record->pdname }}</span>
@@ -146,10 +138,6 @@
                     @case ('strains')
                         <div class="grid grid-cols-1 md:grid-cols-3">
                             <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col">
-                                Strain Number:
-                                <span class='text-base'>{{ $record->id }}</span>
-                            </div>
-                            <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col">
                                 Strain Name:
                                 <span class='text-base'>{{ $record->strainname }}</span>
                             </div>
@@ -202,10 +190,6 @@
 
                     @case ('nystrains')
                         <div class="grid grid-cols-1 md:grid-cols-3">
-                            <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col">
-                                Strain Number:
-                                <span class='text-base'>{{ $record->id }}</span>
-                            </div>
                             <div class="ml-4 text-lg leading-7 font-semibold p-4 input-group flex flex-col">
                                 Strain Type:
                                 <span class='text-base'>{{ $record->nystraintype }}</span>

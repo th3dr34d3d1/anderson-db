@@ -28,12 +28,10 @@ class SearchController extends Controller
         if ($last_result) {
             $saved_ids = Session::get('last_oligos_query');
             $recs = Oligos::whereIn('id', $saved_ids)->get();
-            if ($recs) {
-                return view('searchResult', [
-                    'results' => $recs,
-                    'view_type' => 'oligos'
-                ]);
-            }
+            return view('searchResult', [
+                'results' => (!$recs->isEmpty()) ? $recs : [],
+                'view_type' => 'oligos'
+            ]);
         }
 
         if ($by_id) {
@@ -170,12 +168,10 @@ class SearchController extends Controller
         if ($last_result) {
             $saved_ids = Session::get('last_strains_query');
             $recs = Strains::whereIn('id', $saved_ids)->get();
-            if ($recs) {
-                return view('searchResult', [
-                    'results' => $recs,
-                    'view_type' => 'strains'
-                ]);
-            }
+            return view('searchResult', [
+                'results' => (!$recs->isEmpty()) ? $recs : [],
+                'view_type' => 'strains'
+            ]);
         }
         if ($by_id) {
             $rec = Strains::where('id', $by_id)->first();

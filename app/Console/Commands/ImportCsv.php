@@ -50,20 +50,23 @@ class ImportCsv extends Command
         if (($handle = fopen('./storage/import_files/' . $this->argument('fileName'), "r")) !== FALSE) {
             switch ($this->argument('strain_type')) {
             case 'oligos':
+                Oligos::truncate();
                 break;
 
             case 'plasmids':
                 Plasmids::truncate();
-                $test_var = Storage::deleteDirectory($dnafile_exportpath);
+                Storage::deleteDirectory($dnafile_exportpath);
                 Storage::deleteDirectory($imagefile_exportpath);
                 Storage::makeDirectory($dnafile_exportpath);
                 Storage::makeDirectory($imagefile_exportpath);
                 break;
 
             case 'strains':
+                Strains::truncate();
                 break;
 
             case 'nystrains':
+                Nonyeaststrains::truncate();
                 break;
 
             }

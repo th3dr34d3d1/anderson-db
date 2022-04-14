@@ -55,10 +55,6 @@ class ImportCsv extends Command
 
             case 'plasmids':
                 Plasmids::truncate();
-                Storage::deleteDirectory($dnafile_exportpath);
-                Storage::deleteDirectory($imagefile_exportpath);
-                Storage::makeDirectory($dnafile_exportpath);
-                Storage::makeDirectory($imagefile_exportpath);
                 break;
 
             case 'strains':

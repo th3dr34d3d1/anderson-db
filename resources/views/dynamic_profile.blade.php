@@ -77,7 +77,7 @@
 
                                         <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col col-span-3">
                                             <label for='osquence'>Sequence</label>
-                                            <textarea id='osequence' type="text" class="form-control" name="osequence">{{ ($record) ? $record->osequence : null }}</textarea><br>
+                                            <textarea id='osequence' type="text" class="form-control" name="sequence">{{ ($record) ? $record->sequence : null }}</textarea><br>
                                         </div>
 
                                         <div class="ml-4 text-lg leading-7 font-semibold p-4 imt-2 input-group flex flex-col col-span-3">
